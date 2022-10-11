@@ -1,15 +1,15 @@
 import { Text, Image } from 'react-native';
-import Button from '../components/Button';
-import Container from '../components/Container';
+import Button from '../../components/Button';
+import Container from '../../components/Container';
 import React from 'react';
 
-const SignIn = ({ navigation }) => {
+const Start = ({ navigation }) => {
   return (
     <Container>
-      <Image alt="Limon" source={require('../assets/logo.png')} />
+      <Image alt="Limon" source={require('../../assets/logo.png')} />
       <Image
         alt="cartoon car"
-        source={require('../assets/car.png')}
+        source={require('../../assets/car.png')}
       />
       <Button
         title="Sign in"
@@ -23,4 +23,4 @@ const SignIn = ({ navigation }) => {
   );
 };
 
-export default SignIn;
+export default Start;

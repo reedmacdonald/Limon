@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 import { Colors } from '../constants/Colors';
 
@@ -29,6 +28,7 @@ const StyledPressable = styled.Pressable`
   padding-vertical: 12;
   padding-horizontal: 90;
   border-radius: 30;
+  margin-top: 20;
   elevation: 3;
   background-color: ${(props) =>
     props.disabled ? Colors.grey : Colors.limeGreen};

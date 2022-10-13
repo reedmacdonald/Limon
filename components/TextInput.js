@@ -8,11 +8,11 @@ const InputText = (props) => {
 };
 
 const TextInput = styled.TextInput`
-  padding-vertical: 12;
-  padding-horizontal: 10;
-  border-radius: 30;
-  margin-top: 20;
-  border-width: 1;
+  padding-vertical: 12px;
+  padding-horizontal: 10px;
+  border-radius: 30px;
+  margin-top: 20px;
+  border-width: 1px;
   border-color: ${Colors.grey};
   width: 85%;
 `;

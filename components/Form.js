@@ -19,9 +19,9 @@ const Form = (props) => {
 const View = styled.View`
   align-items: center;
   justify-content: center;
-  padding-vertical: 12;
-  border-radius: 30;
-  margin-top: -40;
+  padding-vertical: 12px;
+  border-radius: 30px;
+  margin-top: -40px;
   elevation: 3;
   background-color: white;
   width: 100%;

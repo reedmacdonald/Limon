@@ -1,4 +1,4 @@
-import { Text, Image } from 'react-native';
+import { Text, Image, Pressable } from 'react-native';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import React from 'react';
@@ -12,12 +12,22 @@ const Start = ({ navigation }) => {
         source={require('../../assets/car.png')}
       />
       <Button
-        title="Sign in"
+        title="Sign Up"
         onPress={() => navigation.navigate('SignUp')}
       />
       <Text>
         Already have an account?{' '}
-        <Text style={{ fontWeight: 'bold' }}>Sign In</Text>
+        <Pressable onPress={() => navigation.navigate('SignIn')}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              alignItems: 'center',
+              justifyContent: ' center',
+            }}
+          >
+            Sign In
+          </Text>
+        </Pressable>
       </Text>
     </Container>
   );

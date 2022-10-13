@@ -1,24 +1,16 @@
-import { Text, Image, View } from 'react-native';
+import { Text, View } from 'react-native';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Form from '../../components/Form';
 import InputText from '../../components/TextInput';
 import React from 'react';
-import { Colors } from '../../constants/Colors';
+import BackgroundImage from '../../components/BackgroundImage';
 
 const SignUp = ({ navigation }) => {
   return (
     <Container>
-      <Image
-        style={{
-          backgroundColor: Colors.pistachio,
-          borderColor: 'red',
-          borderWidth: 0,
-          position: 'relative',
-          width: '100%',
-          top: -10,
-        }}
-        alt="Limon"
+      <BackgroundImage
+        alt="lemon pattern"
         source={require('../../assets/backgroundArt.png')}
       />
       <Form>
@@ -30,11 +22,11 @@ const SignUp = ({ navigation }) => {
         <InputText placeholder="Password"></InputText>
         <InputText placeholder="Re-enter password"></InputText>
         <View>
-          <Text>By creating our Terms of Service</Text>
+          <Text>By agreeing to our Terms of Service</Text>
         </View>
         <Button
           title="Next"
-          onPress={() => navigation.navigate('SignIn')}
+          onPress={() => navigation.navigate('FirstPhoto')}
         />
         <Text>
           Already have an account?{' '}

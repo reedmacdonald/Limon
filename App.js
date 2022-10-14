@@ -3,7 +3,7 @@ import OnboardingNavigation from './navigation/OnboardingNavigation';
 import { UserContextWrapper } from './contexts/UserContext';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { UserProfile } from './screens/user/UserProfile';
+import UserNavigation from './navigation/UserNavigation';
 
 const Stack = createStackNavigator();
 
@@ -20,8 +20,8 @@ export default function App() {
             component={OnboardingNavigation}
           />
           <Stack.Screen
-            name={'UserProfile'}
-            component={UserProfile}
+            name={'UserNavigation'}
+            component={UserNavigation}
           />
         </Stack.Navigator>
       </NavigationContainer>

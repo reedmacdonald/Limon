@@ -5,16 +5,10 @@ import Container from '../../../components/Container';
 import React, { useContext } from 'react';
 import { Colors } from '../../../constants/Colors';
 import Option from '../../../components/Options';
-import styled from 'styled-components/native';
 import { interests } from '../../../constants/interests';
 import Typography from '../../../components/Typography';
 import { UserContext } from '../../../contexts/UserContext';
-
-const StyledView = styled.View`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
+import { StyledView } from './styles';
 
 const Interests = ({ navigation }) => {
   const [selected, setSelected] = React.useState([
@@ -36,7 +30,7 @@ const Interests = ({ navigation }) => {
       setPageNumber(pageNumber + 1);
     } else {
       setUserProperty({ interests: selected });
-      navigation.navigate('UserProfile');
+      navigation.navigate('UserNavigation', { page: 'UserProfile' });
     }
   };
   return (

@@ -10,6 +10,7 @@ const StyledImage = styled.Image`
   backgroundcolor: ${Colors.pistachio};
   position: relative;
   width: 100%;
+  height: 150px;
   top: -10;
 `;
 

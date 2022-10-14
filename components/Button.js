@@ -9,6 +9,7 @@ const Button = ({
   disabled = false,
   secondary = false,
   type = 'default',
+  style,
 }) => {
   if (type == 'circle') {
     return (
@@ -22,6 +23,7 @@ const Button = ({
         disabled={disabled}
         secondary={secondary}
         onPress={onPress}
+        style={style}
       >
         <StyledText disabled={disabled} secondary={secondary}>
           {title}

@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Colors } from '../constants/Colors';
 
-const InputText = ({ placeholder, value, onChange }) => {
+const InputText = ({ placeholder, value, onChangeText }) => {
   return (
     <TextInput
       value={value}
-      onChange={onChange}
+      onChangeText={onChangeText}
       placeholder={placeholder}
     ></TextInput>
   );

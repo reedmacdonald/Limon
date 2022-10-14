@@ -10,7 +10,10 @@ export const UserContextWrapper = ({ children }) => {
   };
   return (
     <UserContext.Provider
-      value={{ color: 'blue', setUserProperty: setUserProperty }}
+      value={{
+        setUserProperty: setUserProperty,
+        user,
+      }}
     >
       {children}
     </UserContext.Provider>

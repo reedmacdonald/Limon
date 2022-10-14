@@ -29,29 +29,29 @@ const SignUp = ({ navigation }) => {
         </View>
         <InputText
           value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
+          onChangeText={(text) => {
+            setEmail(text);
           }}
           placeholder="Email address"
         ></InputText>
         <InputText
           value={phoneNumber}
-          onChange={(e) => {
-            setPhoneNumber(e.target.value);
+          onChangeText={(text) => {
+            setPhoneNumber(text);
           }}
           placeholder="Phone number"
         ></InputText>
         <InputText
           value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
+          onChangeText={(text) => {
+            setUsername(text);
           }}
           placeholder="Username"
         ></InputText>
         <InputText
           value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
+          onChangeText={(text) => {
+            setPassword(text);
           }}
           placeholder="Password"
         ></InputText>

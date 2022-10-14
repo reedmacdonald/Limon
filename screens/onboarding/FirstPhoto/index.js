@@ -1,12 +1,14 @@
-import { Text, Image } from 'react-native';
-import Button from '../../components/Button';
-import Container from '../../components/Container';
-import React, { useEffect } from 'react';
+import Button from '../../../components/Button';
+import Container from '../../../components/Container';
+import React from 'react';
 import * as ImagePicker from 'expo-image-picker';
-import LongOption from '../../components/LongOption';
+import LongOption from '../../../components/LongOption';
+import Typography from '../../../components/Typography';
+import { UserContext } from '../../../contexts/UserContext';
 
 const FirstPhoto = ({ navigation }) => {
   const [photo, setPhoto] = React.useState(null);
+  const { setUserProperty } = React.useContext(UserContext);
 
   const getCameraPhoto = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -16,15 +18,19 @@ const FirstPhoto = ({ navigation }) => {
       quality: 1,
     });
 
-    console.log(result);
-
     if (!result.cancelled) {
       setPhoto(result.uri);
     }
   };
   return (
     <Container>
-      <Text>Select your first photo for your profile picture</Text>
+      <Typography header>
+        Select your first photo for your profile picture
+      </Typography>
+      <Typography>
+        Choose a photo to add as a profile picture. You can skip to
+        complete later
+      </Typography>
       <LongOption
         onPress={() => getCameraPhoto()}
         title="Choose a photo"
@@ -32,11 +38,12 @@ const FirstPhoto = ({ navigation }) => {
       <LongOption title="Add from Instagram" />
       <LongOption title="Add from Facebook" />
       <Button
-        onPress={() => navigation.navigate('Interests')}
+        onPress={() => {
+          setUserProperty({ photo });
+          navigation.navigate('Interests');
+        }}
         title="Next"
-      >
-        Next
-      </Button>
+      />
     </Container>
   );
 };

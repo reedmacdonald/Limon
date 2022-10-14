@@ -1,18 +1,16 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 import { Colors } from '../constants/Colors';
+import styled from 'styled-components/native';
 
-const Container = (props) => {
-  return <View style={styles.container}>{props.children}</View>;
+const Container = ({ style, children }) => {
+  return <StyledView style={style}>{children}</StyledView>;
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.pistachio,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const StyledView = styled.View`
+  flex: 1;
+  background-color: ${Colors.pistachio};
+  align-items: center;
+  justify-content: center;
+`;
 
 export default Container;

@@ -1,17 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Colors } from '../constants/Colors';
 
-const Form = (props) => {
-  const {
-    onPress,
-    title,
-    disabled = false,
-    secondary = false,
-  } = props;
+const Form = ({ onPress, disabled, secondary, children }) => {
   return (
     <View disabled={disabled} secondary={secondary} onPress={onPress}>
-      {props.children}
+      {children}
     </View>
   );
 };
@@ -20,6 +13,7 @@ const View = styled.View`
   align-items: center;
   justify-content: center;
   padding-vertical: 12px;
+  padding-horizontal: 40px;
   border-radius: 30px;
   margin-top: -40px;
   elevation: 3;

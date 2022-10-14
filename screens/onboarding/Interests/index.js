@@ -1,12 +1,14 @@
-import { Text, View } from 'react-native';
-import Button from '../../components/Button';
+import { View } from 'react-native';
+import Button from '../../../components/Button';
 import { Bar as ProgressBar } from 'react-native-progress';
-import Container from '../../components/Container';
-import React from 'react';
-import { Colors } from '../../constants/Colors';
-import Option from '../../components/Options';
+import Container from '../../../components/Container';
+import React, { useContext } from 'react';
+import { Colors } from '../../../constants/Colors';
+import Option from '../../../components/Options';
 import styled from 'styled-components/native';
-import { interests } from '../../constants/interests';
+import { interests } from '../../../constants/interests';
+import Typography from '../../../components/Typography';
+import { UserContext } from '../../../contexts/UserContext';
 
 const StyledView = styled.View`
   display: flex;
@@ -23,13 +25,19 @@ const Interests = ({ navigation }) => {
     [],
   ]);
   const [pageNumber, setPageNumber] = React.useState(0);
+  const { setUserProperty } = useContext(UserContext);
   const addSelected = (num) => {
     let newSelected = [...selected];
     newSelected[pageNumber].push(num);
     setSelected(newSelected);
   };
   const clickNext = () => {
-    setPageNumber(pageNumber + 1);
+    if (pageNumber < interests.length - 1) {
+      setPageNumber(pageNumber + 1);
+    } else {
+      setUserProperty({ interests: selected });
+      navigation.navigate('UserProfile');
+    }
   };
   return (
     <Container>
@@ -41,11 +49,11 @@ const Interests = ({ navigation }) => {
           progress={pageNumber / interests.length}
           width={300}
         />
-        <Text>I enjoy spending my time</Text>
-        <Text>
+        <Typography header>I enjoy spending my time</Typography>
+        <Typography>
           Select 5 tags that best resonate with the activities you
           enjoy on a day off
-        </Text>
+        </Typography>
         <StyledView>
           {interests[pageNumber].map((value, index) => {
             return (

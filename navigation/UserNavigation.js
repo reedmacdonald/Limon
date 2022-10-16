@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { UserProfile } from '../screens/user/UserProfile';
-import EditUser from '../screens/user/EditUser.js/styles';
+import EditUser from '../screens/user/EditUser';
 
 const Stack = createStackNavigator();
 

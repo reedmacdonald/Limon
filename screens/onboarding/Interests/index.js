@@ -1,12 +1,12 @@
 import { View } from 'react-native';
-import Button from '../../../components/Button';
+import Button from '../../../components/ui-library/Button';
 import { Bar as ProgressBar } from 'react-native-progress';
-import Container from '../../../components/Container';
+import Container from '../../../components/ui-library/Container';
 import React, { useContext } from 'react';
 import { Colors } from '../../../constants/Colors';
-import Option from '../../../components/Options';
+import Option from '../../../components/ui-library/Options';
 import { interests } from '../../../constants/interests';
-import Typography from '../../../components/Typography';
+import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
 import { StyledView } from './styles';
 

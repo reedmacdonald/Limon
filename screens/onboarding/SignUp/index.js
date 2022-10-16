@@ -1,11 +1,11 @@
 import { Text, View } from 'react-native';
-import Button from '../../../components/Button';
-import Container from '../../../components/Container';
-import Form from '../../../components/Form';
-import InputText from '../../../components/TextInput';
+import Button from '../../../components/ui-library/Button';
+import Container from '../../../components/ui-library/Container';
+import Form from '../../../components/ui-library/Form';
+import InputText from '../../../components/ui-library/TextInput';
 import React, { useState, useContext } from 'react';
-import BackgroundImage from '../../../components/BackgroundImage';
-import Typography from '../../../components/Typography';
+import BackgroundImage from '../../../components/ui-library/BackgroundImage';
+import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
 
 const SignUp = ({ navigation }) => {
@@ -19,6 +19,7 @@ const SignUp = ({ navigation }) => {
       <BackgroundImage
         alt="lemon pattern"
         source={require('../../../assets/backgroundArt.png')}
+        style={{ height: 200 }}
       />
       <Form>
         <View style={{ alignSelf: 'flex-start' }}>

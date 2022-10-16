@@ -1,9 +1,9 @@
-import Button from '../../../components/Button';
-import Container from '../../../components/Container';
+import Button from '../../../components/ui-library/Button';
+import Container from '../../../components/ui-library/Container';
 import React from 'react';
 import * as ImagePicker from 'expo-image-picker';
-import LongOption from '../../../components/LongOption';
-import Typography from '../../../components/Typography';
+import LongOption from '../../../components/ui-library/LongOption';
+import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
 
 const FirstPhoto = ({ navigation }) => {

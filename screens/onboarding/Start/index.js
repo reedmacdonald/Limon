@@ -1,6 +1,6 @@
 import { Text, Image, Pressable } from 'react-native';
-import Button from '../../../components/Button';
-import Container from '../../../components/Container';
+import Button from '../../../components/ui-library/Button';
+import Container from '../../../components/ui-library/Container';
 import React from 'react';
 
 const Start = ({ navigation }) => {

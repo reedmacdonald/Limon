@@ -15,9 +15,7 @@ const EditUser = ({ navigation }) => {
   const [photo, setPhoto] = useState(user.photo || '');
   const [bio, setBio] = useState(user.bio || '');
   const [username, setUsername] = useState(user.username || '');
-  useEffect(() => {
-    console.log(user, '<---user from edit user');
-  }, [user]);
+
   const getCameraPhoto = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,

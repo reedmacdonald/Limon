@@ -6,10 +6,15 @@ import { ProfilePicture, WhiteBackground } from './styles';
 import Typography from '../../../components/ui-library/Typography';
 import Button from '../../../components/ui-library/Button';
 import { Paths } from '../../../constants/NavigationPaths';
+import { FlatList } from 'react-native';
+import { EventMock as DATA } from '../../../mocks/EventMocks';
+import DayTrip from '../../../components/DayTrip';
 
 export const UserProfile = ({ navigation }) => {
   const { user } = useContext(UserContext);
-  console.log(user, '<---user');
+  const renderItem = (props) => {
+    return <DayTrip {...props.item} />;
+  };
 
   return (
     <Container style={{ justifyContent: 'space-between' }}>
@@ -31,7 +36,7 @@ export const UserProfile = ({ navigation }) => {
           }}
         ></Button>
       </WhiteBackground>
-      <Typography>No Posts</Typography>
+      <FlatList data={DATA} renderItem={renderItem} />
     </Container>
   );
 };

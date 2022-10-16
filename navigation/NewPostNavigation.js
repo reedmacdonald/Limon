@@ -8,7 +8,6 @@ import { UserProfile } from '../screens/user/UserProfile';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { UserContext } from '../contexts/UserContext';
 import { Image } from 'react-native';
-//TODO : Figure out why Profile Picture isnt't working
 
 const Tab = createBottomTabNavigator();
 

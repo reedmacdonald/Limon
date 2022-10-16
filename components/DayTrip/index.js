@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text, View } from 'react-native';
 import {
   WhiteBox,
   ImageHolder,
@@ -6,7 +7,12 @@ import {
   BottomHolder,
   StyledProfilePicture,
   Image,
+  FollowingText,
+  UsernameHolder,
+  BottomSubHolder,
 } from './styles';
+import Icon from '@expo/vector-icons/FontAwesome5';
+import IconTwo from '@expo/vector-icons/MaterialIcons';
 import Typography from '../ui-library/Typography';
 import MockOne from '../../assets/locationMocks/mockOne.jpg';
 import MockTwo from '../../assets/locationMocks/mockTwo.jpg';
@@ -43,22 +49,42 @@ const players = [
   ManuelNeuer,
 ];
 
-const DayTrip = ({ username, postTitle, likes, comments }) => {
+const DayTrip = ({
+  username,
+  postTitle,
+  likes,
+  comments,
+  following,
+  isUser,
+}) => {
   const [number] = React.useState(Math.floor(Math.random() * 7));
 
   return (
     <WhiteBox>
       <TopHolder>
-        <StyledProfilePicture source={players[number]} />
-        <Typography>{username}</Typography>
+        <UsernameHolder>
+          <StyledProfilePicture source={players[number]} />
+          <Typography>{username}</Typography>
+        </UsernameHolder>
+        {!isUser ? (
+          <FollowingText>
+            {following ? 'Following' : 'Follow'}
+          </FollowingText>
+        ) : null}
       </TopHolder>
       <ImageHolder>
         <Image source={locations[number]} />
       </ImageHolder>
       <Typography>{postTitle}</Typography>
       <BottomHolder>
-        <Typography>likes : {likes}</Typography>
-        <Typography>comments : {comments}</Typography>
+        <BottomSubHolder>
+          <IconTwo name="favorite-outline" size={20} color="black" />
+          <Typography>likes : {likes}</Typography>
+        </BottomSubHolder>
+        <BottomSubHolder>
+          <Icon name="comments" size={20} color="black" />
+          <Typography>comments : {comments}</Typography>
+        </BottomSubHolder>
       </BottomHolder>
     </WhiteBox>
   );

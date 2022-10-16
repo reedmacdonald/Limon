@@ -23,3 +23,8 @@ export const FlatList = styled.FlatList`
   flexgrow: 0;
   padding-vertical: 5px;
 `;
+
+export const Image = styled.Image`
+  height: 60px;
+  width: 100%;
+`;

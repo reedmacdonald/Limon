@@ -19,6 +19,7 @@ export const ImageHolder = styled.View`
 export const TopHolder = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 `;
 export const BottomHolder = styled.View`
   flex-direction: row;
@@ -35,4 +36,28 @@ export const Image = styled.Image`
   width: 100%;
   height: 250;
   border-radius: 10px;
+`;
+
+export const FollowingText = styled.Text`
+  border-width: 2px;
+  background-color: ${Colors.limeGreen};
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  border-color:${Colors.limeGreen}
+  overflow: hidden;
+  background-color: ${(props) =>
+    props.following ? Colors.limeGreen : Colors.white};
+  color: ${(props) =>
+    props.following ? Colors.white : Colors.limeGreen};
+`;
+
+export const UsernameHolder = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const BottomSubHolder = styled.View`
+  flex-direction: row;
+  align-items: center;
 `;

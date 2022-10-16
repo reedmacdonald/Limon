@@ -18,7 +18,7 @@ const SignIn = ({ navigation }) => {
       <Form>
         <Typography>Sign In</Typography>
         <InputText placeholder="Username or Email"></InputText>
-        <InputText placeholder="Password"></InputText>
+        <InputText secureTextEntry placeholder="Password"></InputText>
         <Button
           title="Next"
           onPress={() => navigation.navigate('FirstPhoto')}

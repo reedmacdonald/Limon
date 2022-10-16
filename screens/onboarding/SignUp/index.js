@@ -55,8 +55,12 @@ const SignUp = ({ navigation }) => {
             setPassword(text);
           }}
           placeholder="Password"
+          secureTextEntry
         ></InputText>
-        <InputText placeholder="Re-enter password"></InputText>
+        <InputText
+          secureTextEntry
+          placeholder="Re-enter password"
+        ></InputText>
         <View>
           <Text>By agreeing to our Terms of Service</Text>
         </View>

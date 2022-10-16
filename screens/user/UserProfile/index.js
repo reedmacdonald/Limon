@@ -13,7 +13,9 @@ import DayTrip from '../../../components/DayTrip';
 export const UserProfile = ({ navigation }) => {
   const { user } = useContext(UserContext);
   const renderItem = (props) => {
-    return <DayTrip {...props.item} />;
+    return (
+      <DayTrip {...props.item} username={user.username} isUser />
+    );
   };
 
   return (

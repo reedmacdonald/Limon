@@ -1,12 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
-import InputText from '../../../components/ui-library/TextInput';
 import { ProfilePicture } from '../UserProfile/styles';
 import Typography from '../../../components/ui-library/Typography';
 import Button from '../../../components/ui-library/Button';
 import { UserContext } from '../../../contexts/UserContext';
 import * as ImagePicker from 'expo-image-picker';
 import { Paths } from '../../../constants/NavigationPaths';
-import { StyledContainer as Container, View } from './styles';
+import {
+  StyledContainer as Container,
+  InputHolder,
+  StyledInputText as InputText,
+  ImageHolder,
+} from './styles';
 //Are we using name and Links at all?
 
 const EditUser = ({ navigation }) => {
@@ -34,17 +38,18 @@ const EditUser = ({ navigation }) => {
   };
   return (
     <Container>
-      <ProfilePicture source={{ uri: photo || user.photo || '' }} />
-      <Typography
-        onPress={() => {
-          getCameraPhoto();
-        }}
-        green
-      >
-        {' '}
-        Change profile picture?
-      </Typography>
-      <View>
+      <ImageHolder>
+        <ProfilePicture source={{ uri: photo || user.photo || '' }} />
+        <Typography
+          onPress={() => {
+            getCameraPhoto();
+          }}
+          green
+        >
+          Change profile picture?
+        </Typography>
+      </ImageHolder>
+      <InputHolder>
         <Typography>Name</Typography>
         <InputText
           value={name}
@@ -71,7 +76,7 @@ const EditUser = ({ navigation }) => {
         />
         <Typography>Links</Typography>
         <InputText placeholder="Links" />
-      </View>
+      </InputHolder>
       <Button
         onPress={() => {
           applyAndGoBack();

@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '../../../components/ui-library/Typography';
-import { Image } from 'react-native';
 import Logo from '../../../assets/logo.png';
 import {
   StyledContainer as Container,
@@ -8,6 +7,7 @@ import {
   DayTripHolder,
   FlatList,
   ScrollView,
+  Image,
 } from './styles';
 import { EventMock as DATA } from '../../../mocks/EventMocks';
 import DayTrip from '../../../components/DayTrip';

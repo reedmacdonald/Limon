@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Container from '../../../components/ui-library/Container';
 import InputText from '../../../components/ui-library/TextInput';
 import { ProfilePicture } from '../UserProfile/styles';
 import Typography from '../../../components/ui-library/Typography';
@@ -7,6 +6,7 @@ import Button from '../../../components/ui-library/Button';
 import { UserContext } from '../../../contexts/UserContext';
 import * as ImagePicker from 'expo-image-picker';
 import { Paths } from '../../../constants/NavigationPaths';
+import { StyledContainer as Container, View } from './styles';
 //Are we using name and Links at all?
 
 const EditUser = ({ navigation }) => {
@@ -44,32 +44,34 @@ const EditUser = ({ navigation }) => {
         {' '}
         Change profile picture?
       </Typography>
-      <Typography>Name</Typography>
-      <InputText
-        value={name}
-        onChangeText={(text) => {
-          setName(text);
-        }}
-        placeholder="Name"
-      />
-      <Typography>Username</Typography>
-      <InputText
-        value={username}
-        onChangeText={(text) => {
-          setUsername(text);
-        }}
-        placeholder="Username"
-      />
-      <Typography>Bio</Typography>
-      <InputText
-        value={bio}
-        onChangeText={(text) => {
-          setBio(text);
-        }}
-        placeholder="Bio"
-      />
-      <Typography>Links</Typography>
-      <InputText placeholder="Links" />
+      <View>
+        <Typography>Name</Typography>
+        <InputText
+          value={name}
+          onChangeText={(text) => {
+            setName(text);
+          }}
+          placeholder="Name"
+        />
+        <Typography>Username</Typography>
+        <InputText
+          value={username}
+          onChangeText={(text) => {
+            setUsername(text);
+          }}
+          placeholder="Username"
+        />
+        <Typography>Bio</Typography>
+        <InputText
+          value={bio}
+          onChangeText={(text) => {
+            setBio(text);
+          }}
+          placeholder="Bio"
+        />
+        <Typography>Links</Typography>
+        <InputText placeholder="Links" />
+      </View>
       <Button
         onPress={() => {
           applyAndGoBack();

@@ -4,6 +4,8 @@ import { UserContextWrapper } from './contexts/UserContext';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import UserNavigation from './navigation/UserNavigation';
+import PostsNavigation from './navigation/PostsNavigation';
+import { useFonts } from 'expo-font';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +24,10 @@ export default function App() {
           <Stack.Screen
             name={'UserNavigation'}
             component={UserNavigation}
+          />
+          <Stack.Screen
+            name={'PostsNavigation'}
+            component={PostsNavigation}
           />
         </Stack.Navigator>
       </NavigationContainer>

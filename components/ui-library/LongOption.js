@@ -26,7 +26,7 @@ const StyledPressable = styled.Pressable`
 `;
 
 const StyledText = styled.Text`
-  fontsize: 16;
+  fontsize: 16px;
   lineheight: 21;
   fontweight: bold;
   letterspacing: 0.25;

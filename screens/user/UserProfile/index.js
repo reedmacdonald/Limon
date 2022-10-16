@@ -35,6 +35,14 @@ export const UserProfile = ({ navigation }) => {
             navigation.navigate(Paths.edituser);
           }}
         ></Button>
+        <Button
+          title={'Home'}
+          onPress={() => {
+            navigation.navigate('PostsNavigation', {
+              page: Paths.posts,
+            });
+          }}
+        ></Button>
       </WhiteBackground>
       <FlatList data={DATA} renderItem={renderItem} />
     </Container>

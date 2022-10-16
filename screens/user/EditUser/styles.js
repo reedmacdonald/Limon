@@ -1,8 +1,12 @@
-import React from 'react';
-import { Text } from 'react-native';
+import styled from 'styled-components/native';
+import { Colors } from '../../../constants/Colors';
+import Container from '../../../components/ui-library/Container';
 
-const EditUser = () => {
-  return <Text>Edit User Page</Text>;
-};
+export const StyledContainer = styled(Container)`
+  background-color: ${Colors.white};
+  padding-horizontal: 10px;
+`;
 
-export default EditUser;
+export const View = styled.View`
+  align-items: start;
+`;

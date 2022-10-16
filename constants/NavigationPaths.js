@@ -6,4 +6,5 @@ export const Paths = {
   start: 'Start',
   userprofile: 'UserProfile',
   edituser: 'EditUser',
+  posts: 'Posts',
 };

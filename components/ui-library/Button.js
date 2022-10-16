@@ -46,10 +46,10 @@ const StyledPressable = styled.Pressable`
 `;
 
 const StyledText = styled.Text`
-  fontsize: 16;
-  lineheight: 21;
+  fontsize: 16px;
+  lineheight: 21px;
   fontweight: bold;
-  letterspacing: 0.25;
+  letterspacing: 0.25ps;
   color: ${(props) =>
     props.secondary ? Colors.limeGreen : Colors.white};
 `;

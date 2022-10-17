@@ -12,6 +12,8 @@ import { NewPhoto } from '../../../components/ui-library/NewPhoto';
 import { NewPostContext } from '../../../contexts/NewPostContext';
 import { UserContext } from '../../../contexts/UserContext';
 import * as ImagePicker from 'expo-image-picker';
+//TODO:Reorganize this
+import { GalleryImage, GalleryHolder } from '../Preview/styles';
 
 const NewPost = ({ navigation }) => {
   const { setNewPostProperty } = useContext(NewPostContext);
@@ -58,7 +60,13 @@ const NewPost = ({ navigation }) => {
           >
             Add Photo(s)
           </NewPhoto>
-
+          {photos.length ? (
+            <GalleryHolder>
+              {photos.map(({ uri }) => {
+                return <GalleryImage style={{ uri }} />;
+              })}
+            </GalleryHolder>
+          ) : null}
           <Typography>Title</Typography>
           <InputText
             onChangeText={(text) => {

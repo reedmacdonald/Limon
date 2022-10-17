@@ -11,11 +11,13 @@ import {
 import { NewPhoto } from '../../../components/ui-library/NewPhoto';
 import { NewPostContext } from '../../../contexts/NewPostContext';
 import * as ImagePicker from 'expo-image-picker';
+//TODO:Reorganize this
+import { GalleryImage, GalleryHolder } from '../Preview/styles';
 
 const AddDestination = ({ navigation }) => {
   const { newPost, setNewPostProperty } = useContext(NewPostContext);
-  const [postTitle, setPostTitle] = useState('');
-  const [postCaption, setPostCaption] = useState('');
+  const [destinationTitle, setDestinationTitle] = useState('');
+  const [destinationCaption, setDestinationCaption] = useState('');
   const [photos, setPhotos] = useState([]);
 
   const getCameraPhoto = async () => {
@@ -55,20 +57,26 @@ const AddDestination = ({ navigation }) => {
           >
             Add Photo(s)
           </NewPhoto>
-
+          {photos.length ? (
+            <GalleryHolder>
+              {photos.map(({ uri }) => {
+                return <GalleryImage style={{ uri }} />;
+              })}
+            </GalleryHolder>
+          ) : null}
           <Typography>Title</Typography>
           <InputText
             onChangeText={(text) => {
-              setPostTitle(text);
+              setDestinationTitle(text);
             }}
-            value={postTitle}
+            value={destinationTitle}
           />
           <Typography>Caption</Typography>
           <InputText
             onChangeText={(text) => {
-              setPostCaption(text);
+              setDestinationCaption(text);
             }}
-            value={postCaption}
+            value={destinationCaption}
           />
         </Holder>
         <Button
@@ -76,8 +84,8 @@ const AddDestination = ({ navigation }) => {
           onPress={() => {
             let newDestinationData = [...newPost.destinationData];
             newDestinationData.push({
-              postTitle,
-              postCaption,
+              destinationTitle,
+              destinationCaption,
               photos,
             });
             setNewPostProperty({

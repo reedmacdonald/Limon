@@ -13,11 +13,16 @@ export const GalleryHolder = styled.View`
 
 export const GalleryImage = styled.Image`
   width: 30%;
-  height: 50px;
+  height: 100px;
   margin-horizontal: 5px;
 `;
 
 export const StyledContainer = styled(Container)`
   width: 100%;
   justify-content: space-between;
+`;
+
+export const BottomContainer = styled.View`
+  padding-horizontal: 20px;
+  min-height: 400px;
 `;

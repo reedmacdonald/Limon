@@ -13,7 +13,7 @@ const Typography = ({ header, children, green, ...props }) => {
 
 const StyledTypography = styled.Text`
   font-weight: ${(props) => (props.header ? 'bold' : 'normal')};
-  font-size: ${(props) => (props.header ? '24' : '14')};
+  font-size: ${(props) => (props.header ? '24px' : '14px')};
   color: ${(props) => (props.green ? Colors.limeGreen : undefined)};
 `;
 

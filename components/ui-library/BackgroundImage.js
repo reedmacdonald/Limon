@@ -11,7 +11,7 @@ const StyledImage = styled.Image`
   position: relative;
   width: 100%;
   height: 150px;
-  top: -10;
+  top: -10px;
 `;
 
 export default BackgroundImage;

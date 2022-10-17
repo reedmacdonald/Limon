@@ -55,10 +55,10 @@ const StyledText = styled.Text`
 `;
 
 const StyledCircle = styled(StyledPressable)`
-  width: 50;
-  height: 50;
+  width: 50px;
+  height: 50px;
   padding-horizontal: 0;
-  border-radius: 25;
+  border-radius: 25px;
 `;
 
 export default Button;

@@ -10,15 +10,12 @@ import {
 } from '../../../components/NewPost';
 import { NewPhoto } from '../../../components/ui-library/NewPhoto';
 import { NewPostContext } from '../../../contexts/NewPostContext';
-import { UserContext } from '../../../contexts/UserContext';
 import * as ImagePicker from 'expo-image-picker';
 
-const NewPost = ({ navigation }) => {
-  const { setNewPostProperty } = useContext(NewPostContext);
-  const { user } = useContext(UserContext);
+const AddDestination = ({ navigation }) => {
+  const { newPost, setNewPostProperty } = useContext(NewPostContext);
   const [postTitle, setPostTitle] = useState('');
   const [postCaption, setPostCaption] = useState('');
-  const [postTag, setPostTag] = useState('');
   const [photos, setPhotos] = useState([]);
 
   const getCameraPhoto = async () => {
@@ -45,7 +42,7 @@ const NewPost = ({ navigation }) => {
           X
         </Typography>
         <Typography style={{ fontWeight: 'bold' }}>
-          New Post
+          Add Destination
         </Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
@@ -73,28 +70,20 @@ const NewPost = ({ navigation }) => {
             }}
             value={postCaption}
           />
-          <Typography>Tag</Typography>
-          <InputText
-            onChangeText={(text) => {
-              setPostTag(text);
-            }}
-            value={postTag}
-          />
         </Holder>
         <Button
           title={'Next'}
           onPress={() => {
-            setNewPostProperty({
-              postData: {
-                postTitle,
-                postCaption,
-                postTag,
-                photos,
-                username: user.username,
-                likes: 0,
-              },
+            let newDestinationData = [...newPost.destinationData];
+            newDestinationData.push({
+              postTitle,
+              postCaption,
+              photos,
             });
-            navigation.navigate('AddDestination');
+            setNewPostProperty({
+              destinationData: newDestinationData,
+            });
+            navigation.navigate('Preview');
           }}
         />
       </WhiteBackground>
@@ -102,4 +91,4 @@ const NewPost = ({ navigation }) => {
   );
 };
 
-export default NewPost;
+export default AddDestination;

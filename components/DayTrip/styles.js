@@ -26,15 +26,15 @@ export const BottomHolder = styled.View`
   justify-content: space-around;
 `;
 export const StyledProfilePicture = styled(ProfilePicture)`
-  width: 30;
-  height: 30;
+  width: 30px;
+  height: 30px;
   position: relative;
   top: 0;
   left: 0;
 `;
 export const Image = styled.Image`
   width: 100%;
-  height: 250;
+  height: 250px;
   border-radius: 10px;
 `;
 

@@ -29,6 +29,7 @@ const NewPost = ({ navigation }) => {
       aspect: [4, 3],
       quality: 1,
       allowsMultipleSelection: true,
+      selectionLimit: 6,
     });
 
     if (!result.cancelled) {
@@ -62,8 +63,13 @@ const NewPost = ({ navigation }) => {
           </NewPhoto>
           {photos.length ? (
             <GalleryHolder>
-              {photos.map(({ uri }) => {
-                return <GalleryImage style={{ uri }} />;
+              {photos.map((photo) => {
+                return (
+                  <GalleryImage
+                    key={photo.uri}
+                    source={{ uri: photo.uri }}
+                  />
+                );
               })}
             </GalleryHolder>
           ) : null}

@@ -37,21 +37,21 @@ const Preview = ({ navigation }) => {
         </Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
-      <ScrollView contentContainerStyle={{ paddingBottom: 200 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 400 }}>
         <HeaderImage
           source={{ uri: newPost.postData.photos[0].uri }}
         />
-        <WhiteBackground>
+        <WhiteBackground style={{ height: 600 }}>
           <Typography header>{newPost.postData.postTitle}</Typography>
           <Typography>{newPost.postData.postCaption}</Typography>
           <View>
             <Typography>{newPost.postData.username}</Typography>
-            <Typography>{newPost.postData.likes}</Typography>
+            <Typography>likes : {newPost.postData.likes}</Typography>
           </View>
           <Typography>Image Gallery</Typography>
           <GalleryHolder>
             {newPost.postData.photos.map(({ uri }) => {
-              return <GalleryImage source={{ uri }} />;
+              return <GalleryImage key={uri} source={{ uri }} />;
             })}
           </GalleryHolder>
           <Button title="Done" />
@@ -61,13 +61,18 @@ const Preview = ({ navigation }) => {
           {newPost.destinationData.map((value) => {
             return (
               <Destination
+                key={value.destinationTitle}
                 photo={value.photos[0]}
                 likes={Math.floor(Math.random() * 1000)}
                 title={value.destinationTitle}
               />
             );
           })}
-          <BlankDestination />
+          <BlankDestination
+            onPress={() => {
+              navigation.navigate('AddDestination');
+            }}
+          />
         </BottomContainer>
       </ScrollView>
     </StyledContainer>

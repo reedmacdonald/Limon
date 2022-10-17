@@ -15,9 +15,9 @@ export const Destination = ({ title, likes, photo }) => {
   );
 };
 
-export const BlankDestination = () => {
+export const BlankDestination = (props) => {
   return (
-    <StyledPressable>
+    <StyledPressable {...props}>
       <BlankBox />
       <View>
         <Typography header>Add a destination</Typography>

@@ -26,11 +26,18 @@ const AddDestination = ({ navigation }) => {
       aspect: [4, 3],
       quality: 1,
       allowsMultipleSelection: true,
+      selectionLimit: 6,
     });
 
     if (!result.cancelled) {
       setPhotos(result.selected);
     }
+  };
+
+  const clear = () => {
+    setDestinationCaption('');
+    setDestinationTitle('');
+    setPhotos([]);
   };
 
   return (
@@ -59,8 +66,13 @@ const AddDestination = ({ navigation }) => {
           </NewPhoto>
           {photos.length ? (
             <GalleryHolder>
-              {photos.map(({ uri }) => {
-                return <GalleryImage style={{ uri }} />;
+              {photos.map((photo) => {
+                return (
+                  <GalleryImage
+                    key={photo.uri}
+                    source={{ uri: photo.uri }}
+                  />
+                );
               })}
             </GalleryHolder>
           ) : null}
@@ -91,6 +103,7 @@ const AddDestination = ({ navigation }) => {
             setNewPostProperty({
               destinationData: newDestinationData,
             });
+            clear();
             navigation.navigate('Preview');
           }}
         />

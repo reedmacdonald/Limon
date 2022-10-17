@@ -14,7 +14,7 @@ export const GalleryHolder = styled.View`
 export const GalleryImage = styled.Image`
   width: 30%;
   height: 100px;
-  margin-horizontal: 5px;
+  margin: 5px;
 `;
 
 export const StyledContainer = styled(Container)`

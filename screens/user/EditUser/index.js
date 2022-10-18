@@ -1,15 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { ProfilePicture } from '../UserProfile/styles';
 import Typography from '../../../components/ui-library/Typography';
 import Button from '../../../components/ui-library/Button';
 import { UserContext } from '../../../contexts/UserContext';
 import * as ImagePicker from 'expo-image-picker';
 import { Paths } from '../../../constants/NavigationPaths';
+import { View } from 'react-native';
 import {
   StyledContainer as Container,
   InputHolder,
-  StyledInputText as InputText,
   ImageHolder,
+  StyledProfilePicture,
 } from './styles';
 import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
 //Are we using name and Links at all?
@@ -40,7 +40,11 @@ const EditUser = ({ navigation }) => {
   return (
     <Container>
       <ImageHolder>
-        <ProfilePicture source={{ uri: photo || user.photo || '' }} />
+        <View>
+          <StyledProfilePicture
+            source={{ uri: photo || user.photo || '' }}
+          />
+        </View>
         <Typography onPress={getCameraPhoto} green>
           Change profile picture?
         </Typography>
@@ -67,7 +71,7 @@ const EditUser = ({ navigation }) => {
             setBio(text);
           }}
         />
-        <InputText label="Links" />
+        <SecondaryInput label="Links" />
       </InputHolder>
       <Button onPress={applyAndGoBack} title={'Done'} />
     </Container>

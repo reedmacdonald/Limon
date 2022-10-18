@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Typography from '../../../components/ui-library/Typography';
 import { NewPostContext } from '../../../contexts/NewPostContext';
-import { View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import {
   StyledTopContainer,
   WhiteBackground,
@@ -34,9 +34,7 @@ const Preview = ({ navigation }) => {
         >
           X
         </Typography>
-        <Typography style={{ fontWeight: 'bold' }}>
-          Preview
-        </Typography>
+        <Typography bold>Preview</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
       <ScrollView contentContainerStyle={{ paddingBottom: 400 }}>

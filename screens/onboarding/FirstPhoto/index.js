@@ -1,28 +1,16 @@
 import Button from '../../../components/ui-library/Button';
 import Container from '../../../components/ui-library/Container';
 import React from 'react';
-import * as ImagePicker from 'expo-image-picker';
 import LongOption from '../../../components/ui-library/LongOption';
 import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
 import { Paths } from '../../../constants/NavigationPaths';
+import { useImageGallery } from '../../../hooks/useImageGallery';
 
 const FirstPhoto = ({ navigation }) => {
-  const [photo, setPhoto] = React.useState(null);
   const { setUserProperty } = React.useContext(UserContext);
+  const [photo, setPhoto] = useImageGallery({ onePhoto: true });
 
-  const getCameraPhoto = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
-
-    if (!result.cancelled) {
-      setPhoto(result.uri);
-    }
-  };
   return (
     <Container>
       <Typography header>
@@ -32,10 +20,7 @@ const FirstPhoto = ({ navigation }) => {
         Choose a photo to add as a profile picture. You can skip to
         complete later
       </Typography>
-      <LongOption
-        onPress={() => getCameraPhoto()}
-        title="Choose a photo"
-      />
+      <LongOption onPress={setPhoto} title="Choose a photo" />
       <LongOption title="Add from Instagram" />
       <LongOption title="Add from Facebook" />
       <Button

@@ -10,10 +10,10 @@ import {
 import { NewPhoto } from '../../../components/ui-library/NewPhoto';
 import { NewPostContext } from '../../../contexts/NewPostContext';
 import { UserContext } from '../../../contexts/UserContext';
-import * as ImagePicker from 'expo-image-picker';
 //TODO:Reorganize this
 import { GalleryImage, GalleryHolder } from '../Preview/styles';
 import { Paths } from '../../../constants/NavigationPaths';
+import { useImageGallery } from '../../../hooks/useImageGallery';
 import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
 
 const NewPost = ({ navigation }) => {
@@ -22,48 +22,26 @@ const NewPost = ({ navigation }) => {
   const [postTitle, setPostTitle] = useState('');
   const [postCaption, setPostCaption] = useState('');
   const [postTag, setPostTag] = useState('');
-  const [photos, setPhotos] = useState([]);
-
-  const getCameraPhoto = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      aspect: [4, 3],
-      quality: 1,
-      allowsMultipleSelection: true,
-      selectionLimit: 5,
-    });
-
-    if (!result.cancelled) {
-      setPhotos(result.selected);
-    }
-  };
+  const [photos, setPhotos] = useImageGallery();
 
   return (
     <Container>
       <StyledTopContainer>
         <Typography
-          style={{ fontWeight: 'bold' }}
+          bold
           onPress={() => {
             navigation.goBack();
           }}
         >
           X
         </Typography>
-        <Typography style={{ fontWeight: 'bold' }}>
-          New Post
-        </Typography>
+        <Typography bold>New Post</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
       <WhiteBackground>
         <Holder>
           <GalleryHolder>
-            <NewPhoto
-              onPress={() => {
-                getCameraPhoto();
-              }}
-            >
-              Add Photo(s)
-            </NewPhoto>
+            <NewPhoto onPress={setPhotos}>Add Photo(s)</NewPhoto>
             {photos.length
               ? photos.map((photo) => {
                   return (
@@ -78,24 +56,18 @@ const NewPost = ({ navigation }) => {
 
           <SecondaryInput
             label="Title"
-            onChangeText={(text) => {
-              setPostTitle(text);
-            }}
+            onChangeText={setPostTitle}
             value={postTitle}
           />
           <SecondaryInput
             label="Caption"
-            onChangeText={(text) => {
-              setPostCaption(text);
-            }}
+            onChangeText={setPostCaption}
             value={postCaption}
           />
 
           <SecondaryInput
             label="Tag"
-            onChangeText={(text) => {
-              setPostTag(text);
-            }}
+            onChangeText={setPostTag}
             value={postTag}
           />
         </Holder>

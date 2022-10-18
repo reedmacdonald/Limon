@@ -9,8 +9,8 @@ import {
   Holder,
 } from '../../../components/NewPost';
 import { NewPhoto } from '../../../components/ui-library/NewPhoto';
+import { useImageGallery } from '../../../hooks/useImageGallery';
 import { NewPostContext } from '../../../contexts/NewPostContext';
-import * as ImagePicker from 'expo-image-picker';
 //TODO:Reorganize this
 import { GalleryImage, GalleryHolder } from '../Preview/styles';
 import { Paths } from '../../../constants/NavigationPaths';
@@ -19,53 +19,25 @@ const AddDestination = ({ navigation }) => {
   const { newPost, setNewPostProperty } = useContext(NewPostContext);
   const [destinationTitle, setDestinationTitle] = useState('');
   const [destinationCaption, setDestinationCaption] = useState('');
-  const [photos, setPhotos] = useState([]);
-
-  const getCameraPhoto = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      aspect: [4, 3],
-      quality: 1,
-      allowsMultipleSelection: true,
-      selectionLimit: 5,
-    });
-
-    if (!result.cancelled) {
-      setPhotos(result.selected);
-    }
-  };
+  const [photos, setPhotos, clearPhotos] = useImageGallery();
 
   const clear = () => {
     setDestinationCaption('');
     setDestinationTitle('');
-    setPhotos([]);
+    clearPhotos();
   };
 
   return (
     <Container>
       <StyledTopContainer>
-        <Typography
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          X
-        </Typography>
-        <Typography style={{ fontWeight: 'bold' }}>
-          Add Destination
-        </Typography>
+        <Typography onPress={navigation.goBack}>X</Typography>
+        <Typography bold>Add Destination</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
       <WhiteBackground>
         <Holder>
           <GalleryHolder>
-            <NewPhoto
-              onPress={() => {
-                getCameraPhoto();
-              }}
-            >
-              Add Photo(s)
-            </NewPhoto>
+            <NewPhoto onPress={setPhotos}>Add Photo(s)</NewPhoto>
             {photos.length
               ? photos.map((photo) => {
                   return (
@@ -79,16 +51,12 @@ const AddDestination = ({ navigation }) => {
           </GalleryHolder>
           <SecondaryInput
             label="Title"
-            onChangeText={(text) => {
-              setDestinationTitle(text);
-            }}
+            onChangeText={setDestinationTitle}
             value={destinationTitle}
           />
           <SecondaryInput
             label="Caption"
-            onChangeText={(text) => {
-              setDestinationCaption(text);
-            }}
+            onChangeText={setDestinationCaption}
             value={destinationCaption}
           />
         </Holder>

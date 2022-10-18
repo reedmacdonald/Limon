@@ -31,30 +31,22 @@ const SignUp = ({ navigation }) => {
         </View>
         <InputText
           value={email}
-          onChangeText={(text) => {
-            setEmail(text);
-          }}
+          onChangeText={setEmail}
           placeholder="Email address"
         ></InputText>
         <InputText
           value={phoneNumber}
-          onChangeText={(text) => {
-            setPhoneNumber(text);
-          }}
+          onChangeText={setPhoneNumber}
           placeholder="Phone number"
         ></InputText>
         <InputText
           value={username}
-          onChangeText={(text) => {
-            setUsername(text);
-          }}
+          onChangeText={setUsername}
           placeholder="Username"
         ></InputText>
         <InputText
           value={password}
-          onChangeText={(text) => {
-            setPassword(text);
-          }}
+          onChangeText={setPassword}
           placeholder="Password"
           secureTextEntry
         ></InputText>
@@ -78,8 +70,7 @@ const SignUp = ({ navigation }) => {
           }}
         />
         <Text>
-          Already have an account?{' '}
-          <Text style={{ fontWeight: 'bold' }}>Sign In</Text>
+          Already have an account? <Text bold>Sign In</Text>
         </Text>
       </Form>
     </Container>

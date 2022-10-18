@@ -47,7 +47,6 @@ export const UserProfile = ({ navigation }) => {
           </FollowersHolder>
           <SecondaryButton
             onPress={() => {
-              console.log('here');
               navigation.navigate(Paths.edituser);
             }}
             style={{ top: 0, right: 10 }}
@@ -58,7 +57,6 @@ export const UserProfile = ({ navigation }) => {
           <SecondaryButton
             style={{ top: 35, right: 10 }}
             onPress={() => {
-              console.log('here2');
               navigation.navigate(Paths.postsNavigation, {
                 page: Paths.newpost,
               });

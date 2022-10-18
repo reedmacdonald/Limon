@@ -4,13 +4,14 @@ import { Colors } from '../../constants/Colors';
 import React from 'react';
 import Typography from './Typography';
 
-export const Input = styled(InputText)`
-  border: none;
+export const Input = styled.TextInput`
   border-bottom-width: 1px;
   border-bottom-color: ${Colors.grey};
-  border-radius: 0;
+
   width: 100%;
-  height: 40px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  height: 60px;
 `;
 
 const StyledView = styled.View`

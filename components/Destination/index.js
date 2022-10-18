@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Typography from '../ui-library/Typography';
 import { StyledPressable, StyledImage, BlankBox } from './styled';
 import { View } from 'react-native';
+import { CurrentDestinationContext } from '../../contexts/CurrentDestinationContext';
+import { Paths } from '../../constants/NavigationPaths';
 
-export const Destination = ({ title, likes, photo }) => {
+export const Destination = ({ title, likes, photo, navigation }) => {
+  const { setCurrentDestinationProperty } = useContext(
+    CurrentDestinationContext
+  );
+
+  const onPress = () => {
+    setCurrentDestinationProperty({ title, likes, photo });
+    navigation.navigate(Paths.userNavigation, {
+      screen: Paths.currentdestination,
+    });
+  };
   return (
-    <StyledPressable>
+    <StyledPressable onPress={onPress}>
       <StyledImage source={{ uri: photo.uri }} />
       <View>
         <Typography header>{title}</Typography>

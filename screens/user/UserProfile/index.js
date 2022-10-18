@@ -22,7 +22,12 @@ export const UserProfile = ({ navigation }) => {
   const { user } = useContext(UserContext);
   const renderItem = (props) => {
     return (
-      <DayTrip {...props.item} username={user.username} isUser />
+      <DayTrip
+        {...props.item}
+        username={user.username}
+        isUser
+        navigation={navigation}
+      />
     );
   };
 
@@ -58,7 +63,7 @@ export const UserProfile = ({ navigation }) => {
             style={{ top: 35, right: 10 }}
             onPress={() => {
               navigation.navigate(Paths.postsNavigation, {
-                page: Paths.newpost,
+                screen: Paths.newpost,
               });
             }}
           >

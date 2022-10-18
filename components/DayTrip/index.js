@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useContext } from 'react';
+import { Text, View, Pressable } from 'react-native';
 import {
   WhiteBox,
   ImageHolder,
@@ -28,6 +28,8 @@ import LeonGoretzka from '../../assets/avatarMocks/LeonGoretzka.jpg';
 import LeroySane from '../../assets/avatarMocks/LeroySane.jpg';
 import SergeGnabry from '../../assets/avatarMocks/SergeGnabry.jpg';
 import ManuelNeuer from '../../assets/avatarMocks/ManuelNeuer.jpg';
+import { CurrentPostContext } from '../../contexts/CurrentPostContext';
+import { Paths } from '../../constants/NavigationPaths';
 
 const locations = [
   MockOne,
@@ -56,37 +58,65 @@ const DayTrip = ({
   comments,
   following,
   isUser,
+  navigation,
+  photos,
 }) => {
   const [number] = React.useState(Math.floor(Math.random() * 7));
+  const { setCurrentPostProperty } = useContext(CurrentPostContext);
+
+  const onPress = () => {
+    setCurrentPostProperty({
+      username,
+      postTitle,
+      likes,
+      comments,
+      following,
+      isUser,
+      photos: photos,
+    });
+    navigation.navigate(Paths.userNavigation, {
+      screen: Paths.currentpost,
+    });
+  };
 
   return (
-    <WhiteBox>
-      <TopHolder>
-        <UsernameHolder>
-          <StyledProfilePicture source={players[number]} />
-          <Typography>{username}</Typography>
-        </UsernameHolder>
-        {!isUser ? (
-          <FollowingText>
-            {following ? 'Following' : 'Follow'}
-          </FollowingText>
-        ) : null}
-      </TopHolder>
-      <ImageHolder>
-        <Image source={locations[number]} />
-      </ImageHolder>
-      <Typography>{postTitle}</Typography>
-      <BottomHolder>
-        <BottomSubHolder>
-          <IconTwo name="favorite-outline" size={20} color="black" />
-          <Typography>likes : {likes}</Typography>
-        </BottomSubHolder>
-        <BottomSubHolder>
-          <Icon name="comments" size={20} color="black" />
-          <Typography>comments : {comments}</Typography>
-        </BottomSubHolder>
-      </BottomHolder>
-    </WhiteBox>
+    <Pressable onPress={onPress}>
+      <WhiteBox>
+        <TopHolder>
+          <UsernameHolder>
+            <StyledProfilePicture source={players[number]} />
+            <Typography>{username}</Typography>
+          </UsernameHolder>
+          {!isUser ? (
+            <FollowingText>
+              {following ? 'Following' : 'Follow'}
+            </FollowingText>
+          ) : null}
+        </TopHolder>
+        <ImageHolder>
+          {!photos ? (
+            <Image source={locations[number]} />
+          ) : (
+            <Image source={{ uri: photos[0].uri }} />
+          )}
+        </ImageHolder>
+        <Typography>{postTitle}</Typography>
+        <BottomHolder>
+          <BottomSubHolder>
+            <IconTwo
+              name="favorite-outline"
+              size={20}
+              color="black"
+            />
+            <Typography>likes : {likes}</Typography>
+          </BottomSubHolder>
+          <BottomSubHolder>
+            <Icon name="comments" size={20} color="black" />
+            <Typography>comments : {comments}</Typography>
+          </BottomSubHolder>
+        </BottomHolder>
+      </WhiteBox>
+    </Pressable>
   );
 };
 

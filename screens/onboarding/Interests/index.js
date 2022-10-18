@@ -32,7 +32,7 @@ const Interests = ({ navigation }) => {
     } else {
       setUserProperty({ interests: selected });
       navigation.navigate(Paths.userNavigation, {
-        page: Paths.userprofile,
+        screen: Paths.userprofile,
       });
     }
   };

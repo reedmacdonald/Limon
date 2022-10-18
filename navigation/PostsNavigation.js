@@ -9,6 +9,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { UserContext } from '../contexts/UserContext';
 import { Image } from 'react-native';
 import { Paths } from '../constants/NavigationPaths';
+import { Colors } from '../constants/Colors';
 //TODO : Figure out why Profile Picture isnt't working
 
 const Tab = createBottomTabNavigator();
@@ -47,8 +48,9 @@ const PostsNavigation = () => {
             <Ionicons name={iconName} size={size} color={color} />
           );
         },
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
+
+        tabBarActiveTintColor: Colors.limeGreen,
+        tabBarInactiveTintColor: 'grey',
         headerShown: false,
         tabBarStyle:
           route.name == Paths.newPostNavigation

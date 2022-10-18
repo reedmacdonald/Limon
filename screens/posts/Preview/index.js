@@ -65,6 +65,7 @@ const Preview = ({ navigation }) => {
                 photo={value.photos[0]}
                 likes={Math.floor(Math.random() * 1000)}
                 title={value.destinationTitle}
+                navigation={navigation}
               />
             );
           })}

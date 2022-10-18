@@ -8,11 +8,12 @@ export const StyledContainer = styled(Container)`
   width: 100%;
 `;
 
-export const ScrollView = styled.ScrollView``;
-
-export const StyledInputText = styled(InputText)`
-  background-color: ${Colors.white};
+export const ScrollView = styled.ScrollView`
+  padding-top: 50px;
+  padding-bottom: 200px;
 `;
+
+export const StyledInputText = styled(InputText)``;
 
 export const DayTripHolder = styled.View`
   margin-horizontal: 10px;
@@ -27,4 +28,17 @@ export const FlatList = styled.FlatList`
 export const Image = styled.Image`
   height: 60px;
   width: 100%;
+  padding-top: 20px;
+`;
+
+export const IconHolder = styled.View`
+  flex-direction: row;
+  width: 100%;
+  padding-vertical: 20px;
+`;
+
+export const IconSubHolder = styled.View`
+  justify-content: center;
+  align-items: center;
+  width: 25%;
 `;

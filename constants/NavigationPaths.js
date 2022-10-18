@@ -16,4 +16,6 @@ export const Paths = {
   newpost: 'NewPost',
   favoriteposts: 'Saved',
   notifications: 'Notifications',
+  currentpost: 'Current Post',
+  currentdestination: 'CurrentDestination',
 };

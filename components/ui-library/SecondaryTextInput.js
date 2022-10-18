@@ -10,7 +10,7 @@ export const Input = styled(InputText)`
   border-bottom-color: ${Colors.grey};
   border-radius: 0;
   width: 100%;
-  height: 30px;
+  height: 40px;
 `;
 
 const StyledView = styled.View`

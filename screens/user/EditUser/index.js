@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import Typography from '../../../components/ui-library/Typography';
 import Button from '../../../components/ui-library/Button';
 import { UserContext } from '../../../contexts/UserContext';
-import * as ImagePicker from 'expo-image-picker';
 import { Paths } from '../../../constants/NavigationPaths';
 import { View } from 'react-native';
 import {
@@ -11,28 +10,17 @@ import {
   ImageHolder,
   StyledProfilePicture,
 } from './styles';
+import { useImageGallery } from '../../../hooks/useImageGallery';
 import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
 //Are we using name and Links at all?
 
 const EditUser = ({ navigation }) => {
   const { user, setUserProperty } = useContext(UserContext);
   const [name, setName] = useState(user.name || '');
-  const [photo, setPhoto] = useState(user.photo || '');
+  const [photo, setPhoto] = useImageGallery({ onePhoto: true });
   const [bio, setBio] = useState(user.bio || '');
   const [username, setUsername] = useState(user.username || '');
 
-  const getCameraPhoto = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
-
-    if (!result.cancelled) {
-      setPhoto(result.uri);
-    }
-  };
   const applyAndGoBack = () => {
     setUserProperty({ photo, bio, username, name });
     navigation.navigate(Paths.userprofile);
@@ -45,7 +33,7 @@ const EditUser = ({ navigation }) => {
             source={{ uri: photo || user.photo || '' }}
           />
         </View>
-        <Typography onPress={getCameraPhoto} green>
+        <Typography onPress={setPhoto} green>
           Change profile picture?
         </Typography>
       </ImageHolder>
@@ -53,23 +41,17 @@ const EditUser = ({ navigation }) => {
         <SecondaryInput
           label="Name"
           value={name}
-          onChangeText={(text) => {
-            setName(text);
-          }}
+          onChangeText={setName}
         />
         <SecondaryInput
           label="Username"
           value={username}
-          onChangeText={(text) => {
-            setUsername(text);
-          }}
+          onChangeText={setUsername}
         />
         <SecondaryInput
           label="Bio"
           value={bio}
-          onChangeText={(text) => {
-            setBio(text);
-          }}
+          onChangeText={setBio}
         />
         <SecondaryInput label="Links" />
       </InputHolder>

@@ -9,6 +9,7 @@ import { interests } from '../../../constants/interests';
 import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
 import { StyledView } from './styles';
+import { Paths } from '../../../constants/NavigationPaths';
 
 const Interests = ({ navigation }) => {
   const [selected, setSelected] = React.useState([
@@ -30,7 +31,9 @@ const Interests = ({ navigation }) => {
       setPageNumber(pageNumber + 1);
     } else {
       setUserProperty({ interests: selected });
-      navigation.navigate('UserNavigation', { page: 'UserProfile' });
+      navigation.navigate(Paths.userNavigation, {
+        page: Paths.userprofile,
+      });
     }
   };
   return (

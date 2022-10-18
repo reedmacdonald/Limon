@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Typography from '../../../components/ui-library/Typography';
 import Container from '../../../components/ui-library/Container';
 import Button from '../../../components/ui-library/Button';
-import InputText from '../../../components/ui-library/TextInput';
+import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
 import {
   WhiteBackground,
   StyledTopContainer,
@@ -13,6 +13,7 @@ import { NewPostContext } from '../../../contexts/NewPostContext';
 import * as ImagePicker from 'expo-image-picker';
 //TODO:Reorganize this
 import { GalleryImage, GalleryHolder } from '../Preview/styles';
+import { Paths } from '../../../constants/NavigationPaths';
 
 const AddDestination = ({ navigation }) => {
   const { newPost, setNewPostProperty } = useContext(NewPostContext);
@@ -26,7 +27,7 @@ const AddDestination = ({ navigation }) => {
       aspect: [4, 3],
       quality: 1,
       allowsMultipleSelection: true,
-      selectionLimit: 6,
+      selectionLimit: 5,
     });
 
     if (!result.cancelled) {
@@ -57,34 +58,34 @@ const AddDestination = ({ navigation }) => {
       </StyledTopContainer>
       <WhiteBackground>
         <Holder>
-          <NewPhoto
-            onPress={() => {
-              getCameraPhoto();
-            }}
-          >
-            Add Photo(s)
-          </NewPhoto>
-          {photos.length ? (
-            <GalleryHolder>
-              {photos.map((photo) => {
-                return (
-                  <GalleryImage
-                    key={photo.uri}
-                    source={{ uri: photo.uri }}
-                  />
-                );
-              })}
-            </GalleryHolder>
-          ) : null}
-          <Typography>Title</Typography>
-          <InputText
+          <GalleryHolder>
+            <NewPhoto
+              onPress={() => {
+                getCameraPhoto();
+              }}
+            >
+              Add Photo(s)
+            </NewPhoto>
+            {photos.length
+              ? photos.map((photo) => {
+                  return (
+                    <GalleryImage
+                      key={photo.uri}
+                      source={{ uri: photo.uri }}
+                    />
+                  );
+                })
+              : null}
+          </GalleryHolder>
+          <SecondaryInput
+            label="Title"
             onChangeText={(text) => {
               setDestinationTitle(text);
             }}
             value={destinationTitle}
           />
-          <Typography>Caption</Typography>
-          <InputText
+          <SecondaryInput
+            label="Caption"
             onChangeText={(text) => {
               setDestinationCaption(text);
             }}
@@ -104,7 +105,7 @@ const AddDestination = ({ navigation }) => {
               destinationData: newDestinationData,
             });
             clear();
-            navigation.navigate('Preview');
+            navigation.navigate(Paths.preview);
           }}
         />
       </WhiteBackground>

@@ -13,11 +13,13 @@ import {
   GalleryImage,
   StyledContainer,
   BottomContainer,
+  HorizontalContainer,
 } from './styles';
 import {
   Destination,
   BlankDestination,
 } from '../../../components/Destination';
+import { Paths } from '../../../constants/NavigationPaths';
 
 const Preview = ({ navigation }) => {
   const { newPost } = useContext(NewPostContext);
@@ -44,10 +46,10 @@ const Preview = ({ navigation }) => {
         <WhiteBackground style={{ height: 600 }}>
           <Typography header>{newPost.postData.postTitle}</Typography>
           <Typography>{newPost.postData.postCaption}</Typography>
-          <View>
+          <HorizontalContainer>
             <Typography>{newPost.postData.username}</Typography>
             <Typography>likes : {newPost.postData.likes}</Typography>
-          </View>
+          </HorizontalContainer>
           <Typography>Image Gallery</Typography>
           <GalleryHolder>
             {newPost.postData.photos.map(({ uri }) => {
@@ -70,7 +72,7 @@ const Preview = ({ navigation }) => {
           })}
           <BlankDestination
             onPress={() => {
-              navigation.navigate('AddDestination');
+              navigation.navigate(Paths.adddestination);
             }}
           />
         </BottomContainer>

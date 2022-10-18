@@ -5,17 +5,21 @@ import Start from '../screens/onboarding/Start';
 import SignIn from '../screens/onboarding/SignIn';
 import FirstPhoto from '../screens/onboarding/FirstPhoto';
 import Interests from '../screens/onboarding/Interests';
+import { Paths } from '../constants/NavigationPaths';
 
 const Stack = createStackNavigator();
 
 const OnboardingNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName="Start" screenOptions={options}>
-      <Stack.Screen name="Start" component={Start} />
-      <Stack.Screen name="SignUp" component={SignUp} />
-      <Stack.Screen name="SignIn" component={SignIn} />
-      <Stack.Screen name="FirstPhoto" component={FirstPhoto} />
-      <Stack.Screen name="Interests" component={Interests} />
+    <Stack.Navigator
+      initialRouteName={Paths.start}
+      screenOptions={options}
+    >
+      <Stack.Screen name={Paths.start} component={Start} />
+      <Stack.Screen name={Paths.signup} component={SignUp} />
+      <Stack.Screen name={Paths.signin} component={SignIn} />
+      <Stack.Screen name={Paths.firstphoto} component={FirstPhoto} />
+      <Stack.Screen name={Paths.interests} component={Interests} />
     </Stack.Navigator>
   );
 };

@@ -26,3 +26,7 @@ export const BottomContainer = styled.View`
   padding-horizontal: 20px;
   min-height: 400px;
 `;
+
+export const HorizontalContainer = styled.View`
+  flex-direction: row;
+`;

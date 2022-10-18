@@ -8,6 +8,7 @@ import { UserProfile } from '../screens/user/UserProfile';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { UserContext } from '../contexts/UserContext';
 import { Image } from 'react-native';
+import { Paths } from '../constants/NavigationPaths';
 //TODO : Figure out why Profile Picture isnt't working
 
 const Tab = createBottomTabNavigator();
@@ -16,24 +17,24 @@ const PostsNavigation = () => {
   const { user } = useContext(UserContext);
   return (
     <Tab.Navigator
-      initialRouteName="Posts"
+      initialRouteName={Paths.posts}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
-          if (route.name === 'Posts') {
+          if (route.name === Paths.posts) {
             iconName = 'ios-search';
           }
-          if (route.name === 'NewPostNavigation') {
+          if (route.name === Paths.newPostNavigation) {
             iconName = 'add-circle-outline';
           }
-          if (route.name === 'FavoritePosts') {
+          if (route.name === Paths.favoriteposts) {
             iconName = 'bookmark-outline';
           }
-          if (route.name === 'Notifications') {
+          if (route.name === Paths.notifications) {
             iconName = 'md-notifications-outline';
           }
-          if (route.name === 'UserProfile') {
+          if (route.name === Paths.userprofile) {
             return (
               <Image
                 source={{ uri: user.photo }}
@@ -50,19 +51,25 @@ const PostsNavigation = () => {
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
         tabBarStyle:
-          route.name == 'NewPostNavigation'
+          route.name == Paths.newPostNavigation
             ? { display: 'none' }
             : null,
       })}
     >
-      <Tab.Screen name="Posts" component={Posts} />
-      <Tab.Screen name="FavoritePosts" component={FavoritePosts} />
+      <Tab.Screen name={Paths.posts} component={Posts} />
       <Tab.Screen
-        name="NewPostNavigation"
+        name={Paths.favoriteposts}
+        component={FavoritePosts}
+      />
+      <Tab.Screen
+        name={Paths.newPostNavigation}
         component={NewPostNavigation}
       />
-      <Tab.Screen name="Notifications" component={Notifications} />
-      <Tab.Screen name="UserProfile" component={UserProfile} />
+      <Tab.Screen
+        name={Paths.notifications}
+        component={Notifications}
+      />
+      <Tab.Screen name={Paths.userprofile} component={UserProfile} />
     </Tab.Navigator>
   );
 };

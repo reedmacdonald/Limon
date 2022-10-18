@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import Typography from '../../../components/ui-library/Typography';
 import Container from '../../../components/ui-library/Container';
 import Button from '../../../components/ui-library/Button';
-import InputText from '../../../components/ui-library/TextInput';
 import {
   WhiteBackground,
   StyledTopContainer,
@@ -14,6 +13,8 @@ import { UserContext } from '../../../contexts/UserContext';
 import * as ImagePicker from 'expo-image-picker';
 //TODO:Reorganize this
 import { GalleryImage, GalleryHolder } from '../Preview/styles';
+import { Paths } from '../../../constants/NavigationPaths';
+import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
 
 const NewPost = ({ navigation }) => {
   const { setNewPostProperty } = useContext(NewPostContext);
@@ -29,7 +30,7 @@ const NewPost = ({ navigation }) => {
       aspect: [4, 3],
       quality: 1,
       allowsMultipleSelection: true,
-      selectionLimit: 6,
+      selectionLimit: 5,
     });
 
     if (!result.cancelled) {
@@ -41,6 +42,7 @@ const NewPost = ({ navigation }) => {
     <Container>
       <StyledTopContainer>
         <Typography
+          style={{ fontWeight: 'bold' }}
           onPress={() => {
             navigation.goBack();
           }}
@@ -54,41 +56,43 @@ const NewPost = ({ navigation }) => {
       </StyledTopContainer>
       <WhiteBackground>
         <Holder>
-          <NewPhoto
-            onPress={() => {
-              getCameraPhoto();
-            }}
-          >
-            Add Photo(s)
-          </NewPhoto>
-          {photos.length ? (
-            <GalleryHolder>
-              {photos.map((photo) => {
-                return (
-                  <GalleryImage
-                    key={photo.uri}
-                    source={{ uri: photo.uri }}
-                  />
-                );
-              })}
-            </GalleryHolder>
-          ) : null}
-          <Typography>Title</Typography>
-          <InputText
+          <GalleryHolder>
+            <NewPhoto
+              onPress={() => {
+                getCameraPhoto();
+              }}
+            >
+              Add Photo(s)
+            </NewPhoto>
+            {photos.length
+              ? photos.map((photo) => {
+                  return (
+                    <GalleryImage
+                      key={photo.uri}
+                      source={{ uri: photo.uri }}
+                    />
+                  );
+                })
+              : null}
+          </GalleryHolder>
+
+          <SecondaryInput
+            label="Title"
             onChangeText={(text) => {
               setPostTitle(text);
             }}
             value={postTitle}
           />
-          <Typography>Caption</Typography>
-          <InputText
+          <SecondaryInput
+            label="Caption"
             onChangeText={(text) => {
               setPostCaption(text);
             }}
             value={postCaption}
           />
-          <Typography>Tag</Typography>
-          <InputText
+
+          <SecondaryInput
+            label="Tag"
             onChangeText={(text) => {
               setPostTag(text);
             }}
@@ -96,6 +100,9 @@ const NewPost = ({ navigation }) => {
           />
         </Holder>
         <Button
+          disabled={
+            !postCaption | !postTitle | !postTag | !photos.length
+          }
           title={'Next'}
           onPress={() => {
             setNewPostProperty({
@@ -108,7 +115,7 @@ const NewPost = ({ navigation }) => {
                 likes: 0,
               },
             });
-            navigation.navigate('AddDestination');
+            navigation.navigate(Paths.adddestination);
           }}
         />
       </WhiteBackground>

@@ -4,6 +4,7 @@ import NewPost from '../screens/posts/NewPost';
 import { UserContext } from '../contexts/UserContext';
 import AddDestination from '../screens/posts/AddDestination';
 import Preview from '../screens/posts/Preview';
+import { Paths } from '../constants/NavigationPaths';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,15 +12,18 @@ const NewPostNavigation = () => {
   const { user } = useContext(UserContext);
   return (
     <Tab.Navigator
-      initialRouteName="NewPost"
+      initialRouteName={Paths.newpost}
       screenOptions={{
         tabBarStyle: { display: 'none' },
         headerShown: false,
       }}
     >
-      <Tab.Screen name="NewPost" component={NewPost} />
-      <Tab.Screen name="AddDestination" component={AddDestination} />
-      <Tab.Screen name="Preview" component={Preview} />
+      <Tab.Screen name={Paths.newpost} component={NewPost} />
+      <Tab.Screen
+        name={Paths.adddestination}
+        component={AddDestination}
+      />
+      <Tab.Screen name={Paths.preview} component={Preview} />
     </Tab.Navigator>
   );
 };

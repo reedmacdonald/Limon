@@ -7,6 +7,8 @@ import UserNavigation from './navigation/UserNavigation';
 import PostsNavigation from './navigation/PostsNavigation';
 import NewPostNavigation from './navigation/NewPostNavigation';
 import { NewPostContextWrapper } from './contexts/NewPostContext';
+import { SafeAreaView } from 'react-native';
+import { Paths } from './constants/NavigationPaths';
 
 const Stack = createStackNavigator();
 
@@ -16,23 +18,23 @@ export default function App() {
       <NewPostContextWrapper>
         <NavigationContainer>
           <Stack.Navigator
-            initialRoute={'OnboardingNavigation'}
+            initialRoute={Paths.onboardingNavigation}
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen
-              name={'OnboardingNavigation'}
+              name={Paths.onboardingNavigation}
               component={OnboardingNavigation}
             />
             <Stack.Screen
-              name={'UserNavigation'}
+              name={Paths.userNavigation}
               component={UserNavigation}
             />
             <Stack.Screen
-              name={'PostsNavigation'}
+              name={Paths.postsNavigation}
               component={PostsNavigation}
             />
             <Stack.Screen
-              name={'NewPostNavigation'}
+              name={Paths.newPostNavigation}
               component={NewPostNavigation}
             />
           </Stack.Navigator>

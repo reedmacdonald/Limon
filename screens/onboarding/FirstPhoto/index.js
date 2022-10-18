@@ -5,6 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import LongOption from '../../../components/ui-library/LongOption';
 import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
+import { Paths } from '../../../constants/NavigationPaths';
 
 const FirstPhoto = ({ navigation }) => {
   const [photo, setPhoto] = React.useState(null);
@@ -40,7 +41,7 @@ const FirstPhoto = ({ navigation }) => {
       <Button
         onPress={() => {
           setUserProperty({ photo });
-          navigation.navigate('Interests');
+          navigation.navigate(Paths.interests);
         }}
         title="Next"
       />

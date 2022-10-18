@@ -1,7 +1,13 @@
-import { Text, Image, Pressable } from 'react-native';
+import {
+  Text,
+  Image,
+  Pressable,
+  TouchableOpacity,
+} from 'react-native';
 import Button from '../../../components/ui-library/Button';
 import Container from '../../../components/ui-library/Container';
 import React from 'react';
+import { Paths } from '../../../constants/NavigationPaths';
 
 const Start = ({ navigation }) => {
   return (
@@ -16,11 +22,14 @@ const Start = ({ navigation }) => {
       />
       <Button
         title="Sign Up"
-        onPress={() => navigation.navigate('SignUp')}
+        onPress={() => navigation.navigate(Paths.signup)}
       />
-      <Text>
-        Already have an account?{' '}
-        <Pressable onPress={() => navigation.navigate('SignIn')}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate(Paths.signin)}
+        style={{ display: 'inline', marginTop: 10 }}
+      >
+        <Text>
+          Already have an account?{' '}
           <Text
             style={{
               fontWeight: 'bold',
@@ -28,8 +37,8 @@ const Start = ({ navigation }) => {
           >
             Sign In
           </Text>
-        </Pressable>
-      </Text>
+        </Text>
+      </TouchableOpacity>
     </Container>
   );
 };

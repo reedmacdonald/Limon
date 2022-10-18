@@ -24,15 +24,19 @@ const Posts = ({ navigation }) => {
 
   return (
     <Container>
-      <ScrollView>
-        {/*<Ionicons
-          name="md-checkmark-circle"
-          size={32}
-          color="green"
-  />*/}
+      <ScrollView
+        style={{
+          paddingTop: 50,
+          paddingBottom: 200,
+        }}
+      >
         <Image
           resizeMode={'contain'}
-          style={{ height: 60, width: '100%' }}
+          style={{
+            height: 60,
+            width: '100%',
+            paddingTop: 20,
+          }}
           source={Logo}
         />
         <StyledInputText
@@ -48,7 +52,12 @@ const Posts = ({ navigation }) => {
         <Typography header>Drinks</Typography>
         <FlatList data={DATA} renderItem={renderItem} horizontal />
         <Typography header>More</Typography>
-        <FlatList data={DATA} renderItem={renderItem} horizontal />
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          horizontal
+          style={{ marginBottom: 50 }}
+        />
       </ScrollView>
     </Container>
   );

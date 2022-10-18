@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProfilePicture } from '../UserProfile/styles';
 import Typography from '../../../components/ui-library/Typography';
 import Button from '../../../components/ui-library/Button';
@@ -11,6 +11,7 @@ import {
   StyledInputText as InputText,
   ImageHolder,
 } from './styles';
+import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
 //Are we using name and Links at all?
 
 const EditUser = ({ navigation }) => {
@@ -40,49 +41,35 @@ const EditUser = ({ navigation }) => {
     <Container>
       <ImageHolder>
         <ProfilePicture source={{ uri: photo || user.photo || '' }} />
-        <Typography
-          onPress={() => {
-            getCameraPhoto();
-          }}
-          green
-        >
+        <Typography onPress={getCameraPhoto} green>
           Change profile picture?
         </Typography>
       </ImageHolder>
       <InputHolder>
-        <Typography>Name</Typography>
-        <InputText
+        <SecondaryInput
+          label="Name"
           value={name}
           onChangeText={(text) => {
             setName(text);
           }}
-          placeholder="Name"
         />
-        <Typography>Username</Typography>
-        <InputText
+        <SecondaryInput
+          label="Username"
           value={username}
           onChangeText={(text) => {
             setUsername(text);
           }}
-          placeholder="Username"
         />
-        <Typography>Bio</Typography>
-        <InputText
+        <SecondaryInput
+          label="Bio"
           value={bio}
           onChangeText={(text) => {
             setBio(text);
           }}
-          placeholder="Bio"
         />
-        <Typography>Links</Typography>
-        <InputText placeholder="Links" />
+        <InputText label="Links" />
       </InputHolder>
-      <Button
-        onPress={() => {
-          applyAndGoBack();
-        }}
-        title={'Done'}
-      />
+      <Button onPress={applyAndGoBack} title={'Done'} />
     </Container>
   );
 };

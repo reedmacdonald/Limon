@@ -6,6 +6,7 @@ import InputText from '../../../components/ui-library/TextInput';
 import React from 'react';
 import BackgroundImage from '../../../components/ui-library/BackgroundImage';
 import Typography from '../../../components/ui-library/Typography';
+import { Paths } from '../../../constants/NavigationPaths';
 
 const SignIn = ({ navigation }) => {
   return (
@@ -21,7 +22,7 @@ const SignIn = ({ navigation }) => {
         <InputText secureTextEntry placeholder="Password"></InputText>
         <Button
           title="Next"
-          onPress={() => navigation.navigate('FirstPhoto')}
+          onPress={() => navigation.navigate(Paths.firstphoto)}
         />
         <Text>Forgot Password?</Text>
       </Form>

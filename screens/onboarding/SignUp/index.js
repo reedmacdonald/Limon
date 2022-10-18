@@ -7,6 +7,7 @@ import React, { useState, useContext } from 'react';
 import BackgroundImage from '../../../components/ui-library/BackgroundImage';
 import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
+import { Paths } from '../../../constants/NavigationPaths';
 
 const SignUp = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -73,7 +74,7 @@ const SignUp = ({ navigation }) => {
               phoneNumber,
               email,
             });
-            navigation.navigate('FirstPhoto');
+            navigation.navigate(Paths.firstphoto);
           }}
         />
         <Text>

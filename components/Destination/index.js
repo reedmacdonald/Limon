@@ -5,13 +5,19 @@ import { View } from 'react-native';
 import { CurrentDestinationContext } from '../../contexts/CurrentDestinationContext';
 import { Paths } from '../../constants/NavigationPaths';
 
-export const Destination = ({ title, likes, photo, navigation }) => {
+export const Destination = ({
+  title,
+  likes,
+  photo,
+  navigation,
+  photos,
+}) => {
   const { setCurrentDestinationProperty } = useContext(
     CurrentDestinationContext
   );
 
   const onPress = () => {
-    setCurrentDestinationProperty({ title, likes, photo });
+    setCurrentDestinationProperty({ title, likes, photo, photos });
     navigation.navigate(Paths.userNavigation, {
       screen: Paths.currentdestination,
     });

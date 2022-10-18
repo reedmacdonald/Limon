@@ -12,7 +12,7 @@ const FirstPhoto = ({ navigation }) => {
   const [photo, setPhoto] = useImageGallery({ onePhoto: true });
 
   return (
-    <Container>
+    <Container style={{ paddingHorizontal: 20 }}>
       <Typography header>
         Select your first photo for your profile picture
       </Typography>

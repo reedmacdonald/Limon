@@ -22,35 +22,29 @@ import {
 import { Paths } from '../../../constants/NavigationPaths';
 
 const Preview = ({ navigation }) => {
-  const { newPost } = useContext(NewPostContext);
+  const {
+    newPost: { postData, destinationData },
+  } = useContext(NewPostContext);
 
   return (
     <StyledContainer>
       <StyledTopContainer>
-        <Typography
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          X
-        </Typography>
+        <Typography onPress={navigation.goBack}>X</Typography>
         <Typography bold>Preview</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
       <ScrollView contentContainerStyle={{ paddingBottom: 400 }}>
-        <HeaderImage
-          source={{ uri: newPost.postData.photos[0].uri }}
-        />
+        <HeaderImage source={{ uri: postData.photos[0].uri }} />
         <WhiteBackground style={{ height: 600 }}>
-          <Typography header>{newPost.postData.postTitle}</Typography>
-          <Typography>{newPost.postData.postCaption}</Typography>
+          <Typography header>{postData.postTitle}</Typography>
+          <Typography>{postData.postCaption}</Typography>
           <HorizontalContainer>
-            <Typography>{newPost.postData.username}</Typography>
-            <Typography>likes : {newPost.postData.likes}</Typography>
+            <Typography>{postData.username}</Typography>
+            <Typography>likes : {postData.likes}</Typography>
           </HorizontalContainer>
           <Typography>Image Gallery</Typography>
           <GalleryHolder>
-            {newPost.postData.photos.map(({ uri }) => {
+            {postData.photos.map(({ uri }) => {
               return <GalleryImage key={uri} source={{ uri }} />;
             })}
           </GalleryHolder>
@@ -58,13 +52,14 @@ const Preview = ({ navigation }) => {
         </WhiteBackground>
         <BottomContainer>
           <Typography header>Destinations</Typography>
-          {newPost.destinationData.map((value) => {
+          {destinationData.map(({ destinationTitle, photos }) => {
             return (
               <Destination
-                key={value.destinationTitle}
-                photo={value.photos[0]}
+                key={destinationTitle}
+                photo={photos[0]}
+                photos={photos}
                 likes={Math.floor(Math.random() * 1000)}
-                title={value.destinationTitle}
+                title={destinationTitle}
                 navigation={navigation}
               />
             );

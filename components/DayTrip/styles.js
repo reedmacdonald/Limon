@@ -23,7 +23,7 @@ export const TopHolder = styled.View`
 `;
 export const BottomHolder = styled.View`
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 export const StyledProfilePicture = styled(ProfilePicture)`
   width: 30px;

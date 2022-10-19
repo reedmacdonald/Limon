@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Text, View, Pressable } from 'react-native';
+import Lemon from '../../assets/lemon.png';
 import {
   WhiteBox,
   ImageHolder,
@@ -30,6 +31,10 @@ import SergeGnabry from '../../assets/avatarMocks/SergeGnabry.jpg';
 import ManuelNeuer from '../../assets/avatarMocks/ManuelNeuer.jpg';
 import { CurrentPostContext } from '../../contexts/CurrentPostContext';
 import { Paths } from '../../constants/NavigationPaths';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Entypo from '@expo/vector-icons/Entypo';
+import { Colors } from '../../constants/Colors';
 
 const locations = [
   MockOne,
@@ -60,6 +65,7 @@ const DayTrip = ({
   isUser,
   navigation,
   photos,
+  isFavorite,
 }) => {
   const [number] = React.useState(Math.floor(Math.random() * 7));
   const { setCurrentPostProperty } = useContext(CurrentPostContext);
@@ -73,6 +79,7 @@ const DayTrip = ({
       following,
       isUser,
       photos: photos,
+      isFavorite,
     });
     navigation.navigate(Paths.userNavigation, {
       screen: Paths.currentpost,
@@ -87,11 +94,19 @@ const DayTrip = ({
             <StyledProfilePicture source={players[number]} />
             <Typography>{username}</Typography>
           </UsernameHolder>
-          {!isUser ? (
-            <FollowingText>
-              {following ? 'Following' : 'Follow'}
-            </FollowingText>
-          ) : null}
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
+          >
+            {!isUser ? (
+              <FollowingText style={{ marginRight: 10 }}>
+                {following ? 'Following' : 'Follow'}
+              </FollowingText>
+            ) : null}
+            <Entypo name={'dots-three-horizontal'} size={20} />
+          </View>
         </TopHolder>
         <ImageHolder>
           {!photos ? (
@@ -102,18 +117,40 @@ const DayTrip = ({
         </ImageHolder>
         <Typography>{postTitle}</Typography>
         <BottomHolder>
-          <BottomSubHolder>
-            <IconTwo
-              name="favorite-outline"
+          <View style={{ flexDirection: 'row' }}>
+            <BottomSubHolder>
+              <Image
+                source={Lemon}
+                style={{ height: 20, width: 20, borderRadius: 10 }}
+              />
+              <Typography>likes : {likes}</Typography>
+            </BottomSubHolder>
+            <BottomSubHolder style={{ paddingLeft: 10 }}>
+              <Icon name="comments" size={20} color="black" />
+              <Typography>{comments} comments</Typography>
+            </BottomSubHolder>
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <FontAwesome
+              name={'send'}
               size={20}
-              color="black"
+              color={'black'}
+              style={{ paddingRight: 10 }}
             />
-            <Typography>likes : {likes}</Typography>
-          </BottomSubHolder>
-          <BottomSubHolder>
-            <Icon name="comments" size={20} color="black" />
-            <Typography>comments : {comments}</Typography>
-          </BottomSubHolder>
+            {isFavorite ? (
+              <Ionicons
+                name={'bookmark'}
+                size={20}
+                color={Colors.limeGreen}
+              />
+            ) : (
+              <Ionicons
+                name={'bookmark-outline'}
+                size={20}
+                color={'black'}
+              />
+            )}
+          </View>
         </BottomHolder>
       </WhiteBox>
     </Pressable>

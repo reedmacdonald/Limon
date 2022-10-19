@@ -19,7 +19,9 @@ const AddDestination = ({ navigation }) => {
   const { newPost, setNewPostProperty } = useContext(NewPostContext);
   const [destinationTitle, setDestinationTitle] = useState('');
   const [destinationCaption, setDestinationCaption] = useState('');
-  const [photos, setPhotos, clearPhotos] = useImageGallery();
+  const [photos, setPhotos, clearPhotos] = useImageGallery({
+    onePhoto: false,
+  });
 
   const clear = () => {
     setDestinationCaption('');

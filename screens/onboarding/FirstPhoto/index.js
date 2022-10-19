@@ -6,6 +6,7 @@ import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
 import { Paths } from '../../../constants/NavigationPaths';
 import { useImageGallery } from '../../../hooks/useImageGallery';
+import { Image, View } from 'react-native';
 
 const FirstPhoto = ({ navigation }) => {
   const { setUserProperty } = React.useContext(UserContext);
@@ -13,10 +14,23 @@ const FirstPhoto = ({ navigation }) => {
 
   return (
     <Container style={{ paddingHorizontal: 20 }}>
-      <Typography header>
+      {photo && (
+        <View style={{ width: '100%', alignItems: 'center' }}>
+          <Image
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: 50,
+              marginBottom: 20,
+            }}
+            source={{ uri: photo }}
+          />
+        </View>
+      )}
+      <Typography header style={{ width: '100%' }}>
         Select your first photo for your profile picture
       </Typography>
-      <Typography>
+      <Typography style={{ width: '100%' }}>
         Choose a photo to add as a profile picture. You can skip to
         complete later
       </Typography>
@@ -24,6 +38,7 @@ const FirstPhoto = ({ navigation }) => {
       <LongOption title="Add from Instagram" />
       <LongOption title="Add from Facebook" />
       <Button
+        disabled={!!!photo}
         onPress={() => {
           setUserProperty({ photo });
           navigation.navigate(Paths.interests);

@@ -18,6 +18,12 @@ const Start = ({ navigation }) => {
       />
       <Image
         alt="cartoon car"
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: 300,
+        }}
+        resizeMode="cover"
         source={require('../../../assets/car.png')}
       />
       <Button

@@ -22,7 +22,7 @@ const NewPost = ({ navigation }) => {
   const [postTitle, setPostTitle] = useState('');
   const [postCaption, setPostCaption] = useState('');
   const [postTag, setPostTag] = useState('');
-  const [photos, setPhotos] = useImageGallery();
+  const [photos, setPhotos] = useImageGallery({ onePhoto: false });
 
   return (
     <Container>

@@ -20,11 +20,27 @@ import {
   BlankDestination,
 } from '../../../components/Destination';
 import { Paths } from '../../../constants/NavigationPaths';
+import { CurrentPostContext } from '../../../contexts/CurrentPostContext';
 
 const Preview = ({ navigation }) => {
   const {
     newPost: { postData, destinationData },
   } = useContext(NewPostContext);
+  const { setCurrentPostProperty, showNotification } =
+    React.useContext(CurrentPostContext);
+
+  const postAndGo = () => {
+    setCurrentPostProperty({
+      postTitle: postData.postTitle,
+      postCaption: postData.postCaption,
+      username: postData.username,
+      likes: postData.likes,
+    });
+    showNotification();
+    navigation.navigate(Paths.userNavigation, {
+      screen: Paths.currentpost,
+    });
+  };
 
   return (
     <StyledContainer>
@@ -48,7 +64,7 @@ const Preview = ({ navigation }) => {
               return <GalleryImage key={uri} source={{ uri }} />;
             })}
           </GalleryHolder>
-          <Button title="Done" />
+          <Button title="Done" onPress={postAndGo} />
         </WhiteBackground>
         <BottomContainer>
           <Typography header>Destinations</Typography>

@@ -22,7 +22,12 @@ const EditUser = ({ navigation }) => {
   const [username, setUsername] = useState(user.username || '');
 
   const applyAndGoBack = () => {
-    setUserProperty({ photo, bio, username, name });
+    setUserProperty({
+      photo: photo || user.photo,
+      bio,
+      username,
+      name,
+    });
     navigation.navigate(Paths.userprofile);
   };
   return (

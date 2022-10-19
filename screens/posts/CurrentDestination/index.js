@@ -14,7 +14,9 @@ import {
   GalleryHolder,
   StyledContainer,
   HorizontalContainer,
+  ScrollView,
 } from '../Preview/styles';
+import { View } from 'react-native';
 
 export const CurrentDestination = ({ navigation }) => {
   const { currentDestination } = React.useContext(
@@ -22,18 +24,22 @@ export const CurrentDestination = ({ navigation }) => {
   );
   return (
     <StyledContainer>
-      <ScrollView contentContainerStyle={{ paddingBottom: 400 }}>
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 400, width: '100%' }}
+      >
         <HeaderImage source={{ uri: currentDestination.photo.uri }} />
-        <WhiteBackground style={{ height: 600 }}>
+        <WhiteBackground style={{ height: 600, width: '100%' }}>
           <Typography header>{currentDestination.title}</Typography>
           <Typography>{currentDestination.caption}</Typography>
           <HorizontalContainer>
             <Typography>
               {currentDestination.username || 'UnknownUser'}
             </Typography>
-            <Typography>
-              likes : {currentDestination.likes}
-            </Typography>
+            <View>
+              <Typography>
+                likes : {currentDestination.likes}
+              </Typography>
+            </View>
           </HorizontalContainer>
           <Typography>Image Gallery</Typography>
           <Button title="Done" />

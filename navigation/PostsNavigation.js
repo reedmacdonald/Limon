@@ -10,6 +10,7 @@ import { UserContext } from '../contexts/UserContext';
 import { Image } from 'react-native';
 import { Paths } from '../constants/NavigationPaths';
 import { Colors } from '../constants/Colors';
+import { PostDrawerNavigation } from './PostDrawerNavigation';
 //TODO : Figure out why Profile Picture isnt't working
 
 const Tab = createBottomTabNavigator();
@@ -58,7 +59,10 @@ const PostsNavigation = () => {
             : null,
       })}
     >
-      <Tab.Screen name={Paths.posts} component={Posts} />
+      <Tab.Screen
+        name={Paths.posts}
+        component={PostDrawerNavigation}
+      />
       <Tab.Screen
         name={Paths.favoriteposts}
         component={FavoritePosts}

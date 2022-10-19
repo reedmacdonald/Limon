@@ -5,7 +5,7 @@ import { ProfilePicture } from '../../screens/user/UserProfile/styles';
 export const WhiteBox = styled.View`
   background-color: ${Colors.white};
   border-radius: 20px;
-  width: 300px;
+  width: 335px;
   margin-top: 10px;
   padding-horizontal: 10px;
   padding-vertical: 10px;

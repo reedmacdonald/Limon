@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Typography from '../../../components/ui-library/Typography';
 import Logo from '../../../assets/logo.png';
 import {
@@ -17,8 +17,11 @@ import Material from '@expo/vector-icons/MaterialCommunityIcons';
 import Entypo from '@expo/vector-icons/Entypo';
 import { Colors } from '../../../constants/Colors';
 import InputText from '../../../components/ui-library/TextInput';
+import { Pressable, View } from 'react-native';
 
-const Posts = ({ navigation }) => {
+const Posts = ({ navigation, route, ...props }) => {
+  const [category, setCategory] = useState(route.params.category);
+
   const renderItem = (props) => {
     return (
       <DayTripHolder>
@@ -31,11 +34,14 @@ const Posts = ({ navigation }) => {
     <Container>
       <ScrollView>
         <Image resizeMode={'contain'} source={Logo} />
-        <Ionicons
-          name={'reorder-three-outline'}
+        <Pressable
           style={{ position: 'absolute', top: 0, right: 0 }}
-          size={32}
-        />
+          onPress={() => {
+            navigation.toggleDrawer();
+          }}
+        >
+          <Ionicons name={'reorder-three-outline'} size={32} />
+        </Pressable>
         <InputText
           wrapperStyle={{ borderRadius: 15 }}
           icon={
@@ -58,37 +64,61 @@ const Posts = ({ navigation }) => {
           }
           placeholder={'neighborhood, city, state, or zip code'}
         />
-        <IconHolder>
-          <IconSubHolder>
-            <Material name={'ticket'} size={30} />
-            <Typography>Events</Typography>
-          </IconSubHolder>
-          <IconSubHolder>
-            <Ionicons name={'fast-food'} size={30} />
-            <Typography>Dining</Typography>
-          </IconSubHolder>
-          <IconSubHolder>
-            <Ionicons name={'wine'} size={30} />
-            <Typography>Drinks</Typography>
-          </IconSubHolder>
-          <IconSubHolder>
-            <Entypo name={'dots-three-horizontal'} size={30} />
-            <Typography>More</Typography>
-          </IconSubHolder>
-        </IconHolder>
-        <Typography header>Entertainment</Typography>
-        <FlatList data={DATA} renderItem={renderItem} horizontal />
-        <Typography header>Dining</Typography>
-        <FlatList data={DATA} renderItem={renderItem} horizontal />
-        <Typography header>Drinks</Typography>
-        <FlatList data={DATA} renderItem={renderItem} horizontal />
-        <Typography header>More</Typography>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          horizontal
-          style={{ marginBottom: 50 }}
-        />
+        {category == 'All' ? (
+          <View>
+            <IconHolder>
+              <IconSubHolder>
+                <Material name={'ticket'} size={30} />
+                <Typography>Events</Typography>
+              </IconSubHolder>
+              <IconSubHolder>
+                <Ionicons name={'fast-food'} size={30} />
+                <Typography>Dining</Typography>
+              </IconSubHolder>
+              <IconSubHolder>
+                <Ionicons name={'wine'} size={30} />
+                <Typography>Drinks</Typography>
+              </IconSubHolder>
+              <IconSubHolder>
+                <Entypo name={'dots-three-horizontal'} size={30} />
+                <Typography>More</Typography>
+              </IconSubHolder>
+            </IconHolder>
+            <Typography header>Entertainment</Typography>
+            <FlatList
+              data={DATA}
+              renderItem={renderItem}
+              horizontal
+            />
+            <Typography header>Dining</Typography>
+            <FlatList
+              data={DATA}
+              renderItem={renderItem}
+              horizontal
+            />
+            <Typography header>Drinks</Typography>
+            <FlatList
+              data={DATA}
+              renderItem={renderItem}
+              horizontal
+            />
+            <Typography header>More</Typography>
+            <FlatList
+              data={DATA}
+              renderItem={renderItem}
+              horizontal
+              style={{ marginBottom: 50 }}
+            />
+          </View>
+        ) : (
+          <View>
+            <Typography style={{ marginVertical: 10 }}>
+              Showing serach results for "{category}"{' '}
+              <Typography bold>Search again</Typography>
+            </Typography>
+            <FlatList data={DATA} renderItem={renderItem} />
+          </View>
+        )}
       </ScrollView>
     </Container>
   );

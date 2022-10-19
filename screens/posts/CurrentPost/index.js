@@ -19,7 +19,7 @@ import {
   HorizontalContainer,
 } from '../Preview/styles';
 
-import MockOne from '../../../assets/locationMocks/MockOne.jpg';
+import MockOne from '../../../assets/locationMocks/mockOne.jpg';
 
 //TODO: Readd destinations and photo galleries once this is unmocked
 

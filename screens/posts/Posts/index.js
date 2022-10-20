@@ -1,7 +1,7 @@
 import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Material from '@expo/vector-icons/MaterialCommunityIcons';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View } from 'react-native';
 import { Logo } from '../../../components/ui-library/LimonLogo';
 import DayTrip from '../../../components/DayTrip';
@@ -9,7 +9,6 @@ import { Drawer } from '../../../components/ui-library/Drawer';
 import InputText from '../../../components/ui-library/TextInput';
 import Typography from '../../../components/ui-library/Typography';
 import { Colors } from '../../../constants/Colors';
-import { EventMock as DATA } from '../../../mocks/EventMocks';
 import {
   BottomFlatlist,
   DayTripHolder,
@@ -20,9 +19,11 @@ import {
   ScrollView,
   StyledContainer as Container,
 } from './styles';
+import { DayTripsContext } from '../../../contexts/DayTripsContext';
 
 const Posts = ({ navigation, route, ...props }) => {
   const [category, setCategory] = useState(route.params.category);
+  const { dayTrips } = useContext(DayTripsContext);
 
   const renderItem = (props) => {
     return (
@@ -81,25 +82,25 @@ const Posts = ({ navigation, route, ...props }) => {
             </IconHolder>
             <Typography header>Entertainment</Typography>
             <FlatList
-              data={DATA}
+              data={dayTrips}
               renderItem={renderItem}
               horizontal
             />
             <Typography header>Dining</Typography>
             <FlatList
-              data={DATA}
+              data={dayTrips}
               renderItem={renderItem}
               horizontal
             />
             <Typography header>Drinks</Typography>
             <FlatList
-              data={DATA}
+              data={dayTrips}
               renderItem={renderItem}
               horizontal
             />
             <Typography header>More</Typography>
             <BottomFlatlist
-              data={DATA}
+              data={dayTrips}
               renderItem={renderItem}
               horizontal
             />
@@ -110,7 +111,7 @@ const Posts = ({ navigation, route, ...props }) => {
               Showing serach results for "{category}"{' '}
               <Typography bold>Search again</Typography>
             </Typography>
-            <FlatList data={DATA} renderItem={renderItem} />
+            <FlatList data={dayTrips} renderItem={renderItem} />
           </View>
         )}
       </ScrollView>

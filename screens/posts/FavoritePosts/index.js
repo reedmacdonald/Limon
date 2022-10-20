@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Logo } from '../../../components/ui-library/LimonLogo';
 import DayTrip from '../../../components/DayTrip';
 import Typography from '../../../components/ui-library/Typography';
-import { EventMock as DATA } from '../../../mocks/EventMocks';
+import { DayTripsContext } from '../../../contexts/DayTripsContext';
 import {
   DayTripHolder,
   FlatList,
@@ -12,6 +12,7 @@ import {
 } from '../Posts/styles';
 
 const FavoritePosts = ({ navigation, route, ...props }) => {
+  const { dayTrips } = useContext(DayTripsContext);
   const renderItem = (props) => {
     return (
       <DayTripHolder>
@@ -25,7 +26,7 @@ const FavoritePosts = ({ navigation, route, ...props }) => {
       <ScrollView>
         <Logo />
         <Typography header>Favorites</Typography>
-        <FlatList data={DATA} renderItem={renderItem} />
+        <FlatList data={dayTrips} renderItem={renderItem} />
       </ScrollView>
     </Container>
   );

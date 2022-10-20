@@ -5,6 +5,7 @@ import { CurrentDestinationContextWrapper } from './contexts/CurrentDestinationC
 import { CurrentPostContextWrapper } from './contexts/CurrentPostContext';
 import { NewPostContextWrapper } from './contexts/NewPostContext';
 import { UserContextWrapper } from './contexts/UserContext';
+import { DayTripsContextWrapper } from './contexts/DayTripsContext';
 import { MainNavigation } from './navigation/MainNavigation';
 
 const Stack = createStackNavigator();
@@ -16,7 +17,9 @@ export default function App() {
         <CurrentDestinationContextWrapper>
           <CurrentPostContextWrapper>
             <AuthContextWrapper>
-              <MainNavigation />
+              <DayTripsContextWrapper>
+                <MainNavigation />
+              </DayTripsContextWrapper>
             </AuthContextWrapper>
           </CurrentPostContextWrapper>
         </CurrentDestinationContextWrapper>

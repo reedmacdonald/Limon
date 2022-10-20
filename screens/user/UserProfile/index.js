@@ -13,13 +13,14 @@ import {
 import Typography from '../../../components/ui-library/Typography';
 import { Paths } from '../../../constants/NavigationPaths';
 import { FlatList } from 'react-native';
-import { EventMock as DATA } from '../../../mocks/EventMocks';
+import { DayTripsContext } from '../../../contexts/DayTripsContext';
 import DayTrip from '../../../components/DayTrip';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { BackgroundImage } from '../../../components/ui-library/BackgroundImage';
 
 export const UserProfile = ({ navigation }) => {
   const { user } = useContext(UserContext);
+  const { dayTrips } = useContext(DayTripsContext);
 
   const addNewPost = () => {
     navigation.navigate(Paths.postsNavigation, {
@@ -89,7 +90,7 @@ export const UserProfile = ({ navigation }) => {
           />
         </IconHolders>
       </GreyBox>
-      <FlatList data={DATA} renderItem={renderItem} />
+      <FlatList data={dayTrips} renderItem={renderItem} />
     </Container>
   );
 };

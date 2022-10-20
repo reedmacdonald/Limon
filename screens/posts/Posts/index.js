@@ -3,7 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Material from '@expo/vector-icons/MaterialCommunityIcons';
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import Logo from '../../../assets/logo.png';
+import { Logo } from '../../../components/ui-library/LimonLogo';
 import DayTrip from '../../../components/DayTrip';
 import { Drawer } from '../../../components/ui-library/Drawer';
 import InputText from '../../../components/ui-library/TextInput';
@@ -35,7 +35,7 @@ const Posts = ({ navigation, route, ...props }) => {
   return (
     <Container>
       <ScrollView>
-        <Image resizeMode={'contain'} source={Logo} />
+        <Logo />
         <Drawer onPress={navigation.toggleDrawer} />
         <InputText
           wrapperStyle={{ borderRadius: 15 }}

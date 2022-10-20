@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import Container from '../../../components/ui-library/Container';
+import { WhiteBackground } from '../../../components/NewPost';
 
 export const HeaderImage = styled.Image`
   width: 100%;
@@ -29,4 +30,9 @@ export const BottomContainer = styled.View`
 
 export const HorizontalContainer = styled.View`
   flex-direction: row;
+`;
+
+export const StyledWhiteBackground = styled(WhiteBackground)`
+  height: 600px;
+  width: 100%;
 `;

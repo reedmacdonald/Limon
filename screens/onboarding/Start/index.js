@@ -1,45 +1,30 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity } from 'react-native';
+import { Logo } from '../../../components/ui-library/LimonLogo';
 import Button from '../../../components/ui-library/Button';
 import Container from '../../../components/ui-library/Container';
 import { Paths } from '../../../constants/NavigationPaths';
+import Typography from '../../../components/ui-library/Typography';
+import { StyledPressable, StyledImage } from './styles';
 
 const Start = ({ navigation }) => {
+  const goToSignIn = () => navigation.navigate(Paths.signin);
+  const goToSignUp = () => navigation.navigate(Paths.signup);
+
   return (
     <Container>
-      <Image
-        alt="Limon"
-        source={require('../../../assets/logo.png')}
-      />
-      <Image
+      <Logo />
+      <StyledImage
         alt="cartoon car"
-        style={{
-          position: 'relative',
-          width: '100%',
-          height: 300,
-        }}
         resizeMode="cover"
         source={require('../../../assets/car.png')}
       />
-      <Button
-        title="Sign Up"
-        onPress={() => navigation.navigate(Paths.signup)}
-      />
-      <TouchableOpacity
-        onPress={() => navigation.navigate(Paths.signin)}
-        style={{ display: 'inline', marginTop: 10 }}
-      >
-        <Text>
+      <Button title="Sign Up" onPress={goToSignUp} />
+      <StyledPressable onPress={goToSignIn}>
+        <Typography>
           Already have an account?{' '}
-          <Text
-            style={{
-              fontWeight: 'bold',
-            }}
-          >
-            Sign In
-          </Text>
-        </Text>
-      </TouchableOpacity>
+          <Typography bold>Sign In</Typography>
+        </Typography>
+      </StyledPressable>
     </Container>
   );
 };

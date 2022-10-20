@@ -1,10 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import MockOne from '../../../assets/locationMocks/mockOne.jpg';
-import {
-  StyledTopContainer,
-  WhiteBackground,
-} from '../../../components/NewPost';
+import { StyledTopContainer } from '../../../components/NewPost';
 import Button from '../../../components/ui-library/Button';
 import Typography from '../../../components/ui-library/Typography';
 import { CurrentPostContext } from '../../../contexts/CurrentPostContext';
@@ -14,22 +11,20 @@ import {
   HeaderImage,
   HorizontalContainer,
   StyledContainer,
+  StyledWhiteBackground,
 } from '../Preview/styles';
 
 //TODO: Readd destinations and photo galleries once this is unmocked
 
 export const CurrentPost = ({ navigation }) => {
   const { currentPost } = React.useContext(CurrentPostContext);
+  const goBack = () => {
+    navigation.goBack();
+  };
   return (
     <StyledContainer>
       <StyledTopContainer>
-        <Typography
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          X
-        </Typography>
+        <Typography onPress={goBack}>X</Typography>
         <Typography bold>Preview</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
@@ -37,7 +32,7 @@ export const CurrentPost = ({ navigation }) => {
         contentContainerStyle={{ paddingBottom: 400, width: '100%' }}
       >
         <HeaderImage source={MockOne} />
-        <WhiteBackground style={{ height: 600, width: '100%' }}>
+        <StyledWhiteBackground>
           <Typography header>{currentPost.postTitle}</Typography>
           <Typography>{currentPost.postCaption}</Typography>
           <HorizontalContainer>
@@ -45,8 +40,7 @@ export const CurrentPost = ({ navigation }) => {
             <Typography>likes : {currentPost.likes}</Typography>
           </HorizontalContainer>
           <Typography>Image Gallery</Typography>
-          <Button title="Done" />
-        </WhiteBackground>
+        </StyledWhiteBackground>
         <BottomContainer>
           <Typography header>Destinations</Typography>
         </BottomContainer>

@@ -23,16 +23,30 @@ const NewPost = ({ navigation }) => {
   const [postCaption, setPostCaption] = useState('');
   const [postTag, setPostTag] = useState('');
   const [photos, setPhotos] = useImageGallery({ onePhoto: false });
+  const goBack = () => {
+    navigation.goBack();
+  };
+  const setPostAndGo = () => {
+    setNewPostProperty({
+      postData: {
+        postTitle,
+        postCaption,
+        postTag,
+        photos,
+        username: user.username,
+        likes: 0,
+      },
+    });
+    navigation.navigate(Paths.adddestination);
+  };
+
+  const disabled =
+    !postCaption | !postTitle | !postTag | !photos.length;
 
   return (
     <Container>
       <StyledTopContainer>
-        <Typography
-          bold
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
+        <Typography bold onPress={goBack}>
           X
         </Typography>
         <Typography bold>New Post</Typography>
@@ -72,23 +86,9 @@ const NewPost = ({ navigation }) => {
           />
         </Holder>
         <Button
-          disabled={
-            !postCaption | !postTitle | !postTag | !photos.length
-          }
+          disabled={disabled}
           title={'Next'}
-          onPress={() => {
-            setNewPostProperty({
-              postData: {
-                postTitle,
-                postCaption,
-                postTag,
-                photos,
-                username: user.username,
-                likes: 0,
-              },
-            });
-            navigation.navigate(Paths.adddestination);
-          }}
+          onPress={setPostAndGo}
         />
       </WhiteBackground>
     </Container>

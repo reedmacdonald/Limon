@@ -29,6 +29,10 @@ const Preview = ({ navigation }) => {
   const { setCurrentPostProperty, showNotification } =
     React.useContext(CurrentPostContext);
 
+  const addDestination = () => {
+    navigation.navigate(Paths.adddestination);
+  };
+
   const postAndGo = () => {
     setCurrentPostProperty({
       postTitle: postData.postTitle,
@@ -80,11 +84,7 @@ const Preview = ({ navigation }) => {
               />
             );
           })}
-          <BlankDestination
-            onPress={() => {
-              navigation.navigate(Paths.adddestination);
-            }}
-          />
+          <BlankDestination onPress={addDestination} />
         </BottomContainer>
       </ScrollView>
     </StyledContainer>

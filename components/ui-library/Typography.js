@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Colors } from '../../constants/Colors';
-import { Text } from 'react-native';
 
 const Typography = ({ header, children, green, ...props }) => {
   return (
@@ -16,7 +15,7 @@ const StyledTypography = styled.Text`
     props.header || props.bold ? 'bold' : 'normal'};
   font-size: ${(props) =>
     props.header && !props.bold ? '24px' : '14px'};
-  color: ${(props) => (props.green ? Colors.limeGreen : undefined)};
+  color: ${(props) => props.green && Colors.limeGreen};
 `;
 
 export default Typography;

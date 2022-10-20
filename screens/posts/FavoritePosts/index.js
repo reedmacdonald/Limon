@@ -1,6 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
-import Logo from '../../../assets/logo.png';
+import { Logo } from '../../../components/ui-library/LimonLogo';
 import DayTrip from '../../../components/DayTrip';
 import Typography from '../../../components/ui-library/Typography';
 import { EventMock as DATA } from '../../../mocks/EventMocks';
@@ -24,13 +23,9 @@ const FavoritePosts = ({ navigation, route, ...props }) => {
   return (
     <Container>
       <ScrollView>
-        <View>
-          <Image resizeMode={'contain'} source={Logo} />
-        </View>
+        <Logo />
         <Typography header>Favorites</Typography>
-        <View>
-          <FlatList data={DATA} renderItem={renderItem} />
-        </View>
+        <FlatList data={DATA} renderItem={renderItem} />
       </ScrollView>
     </Container>
   );

@@ -20,6 +20,16 @@ import { BackgroundImage } from '../../../components/ui-library/BackgroundImage'
 
 export const UserProfile = ({ navigation }) => {
   const { user } = useContext(UserContext);
+
+  const addNewPost = () => {
+    navigation.navigate(Paths.postsNavigation, {
+      screen: Paths.newpost,
+    });
+  };
+
+  const editUser = () => {
+    navigation.navigate(Paths.edituser);
+  };
   const renderItem = (props) => {
     return (
       <DayTrip
@@ -51,9 +61,7 @@ export const UserProfile = ({ navigation }) => {
             <Typography>{user.following || 0} Following</Typography>
           </FollowersHolder>
           <SecondaryButton
-            onPress={() => {
-              navigation.navigate(Paths.edituser);
-            }}
+            onPress={editUser}
             style={{ top: 0, right: 10 }}
           >
             <Typography>Edit Profile</Typography>
@@ -61,11 +69,7 @@ export const UserProfile = ({ navigation }) => {
 
           <SecondaryButton
             style={{ top: 35, right: 10 }}
-            onPress={() => {
-              navigation.navigate(Paths.postsNavigation, {
-                screen: Paths.newpost,
-              });
-            }}
+            onPress={addNewPost}
           >
             <Typography>Home</Typography>
           </SecondaryButton>

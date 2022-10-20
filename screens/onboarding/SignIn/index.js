@@ -9,17 +9,15 @@ import Typography from '../../../components/ui-library/Typography';
 import { Paths } from '../../../constants/NavigationPaths';
 
 const SignIn = ({ navigation }) => {
+  const goToPhoto = () => navigation.navigate(Paths.firstphoto);
   return (
     <Container>
       <BackgroundImage />
       <Form>
         <Typography>Sign In</Typography>
-        <InputText placeholder="Username or Email"></InputText>
-        <InputText secureTextEntry placeholder="Password"></InputText>
-        <Button
-          title="Next"
-          onPress={() => navigation.navigate(Paths.firstphoto)}
-        />
+        <InputText placeholder="Username or Email" />
+        <InputText secureTextEntry placeholder="Password" />
+        <Button title="Next" onPress={goToPhoto} />
         <Text>Forgot Password?</Text>
       </Form>
     </Container>

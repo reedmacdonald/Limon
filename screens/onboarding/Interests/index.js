@@ -1,15 +1,13 @@
 import React, { useContext } from 'react';
-import { View } from 'react-native';
 import { Bar as ProgressBar } from 'react-native-progress';
 import Button from '../../../components/ui-library/Button';
-import Container from '../../../components/ui-library/Container';
 import Option from '../../../components/ui-library/Options';
 import Typography from '../../../components/ui-library/Typography';
 import { Colors } from '../../../constants/Colors';
 import { interests } from '../../../constants/interests';
 import { Paths } from '../../../constants/NavigationPaths';
 import { UserContext } from '../../../contexts/UserContext';
-import { StyledView } from './styles';
+import { StyledView, ButtonHolder, StyledContainer } from './styles';
 
 const Interests = ({ navigation }) => {
   const [selected, setSelected] = React.useState([
@@ -45,57 +43,50 @@ const Interests = ({ navigation }) => {
       });
     }
   };
+
+  const disabled = selected[pageNumber].length < 5;
   return (
-    <Container>
-      <View style={{ width: '80%' }}>
-        <ProgressBar
-          borderColor={Colors.charcoal}
-          unfilledColor={Colors.charcoal}
-          color={Colors.limeGreen}
-          progress={pageNumber / interests.length}
-          width={300}
-        />
-        <Typography header>I enjoy spending my time</Typography>
-        <Typography>
-          Select 5 tags that best resonate with the activities you
-          enjoy on a day off
-        </Typography>
-        <StyledView>
-          {interests[pageNumber].map((value, index) => {
-            const isSelected = selected[pageNumber].includes(index);
-            return (
-              <Option
-                key={value}
-                onPress={() => {
-                  if (isSelected) {
-                    addSelected(index);
-                  } else {
-                    removeSelected(index);
-                  }
-                }}
-                title={value}
-                selected={isSelected}
-              ></Option>
-            );
-          })}
-        </StyledView>
-        {
-          <View
-            style={{
-              width: '80%',
-              alignItems: 'flex-end',
-            }}
-          >
-            <Button
-              disabled={selected[pageNumber].length < 5}
-              type="circle"
-              title="+"
-              onPress={clickNext}
-            ></Button>
-          </View>
-        }
-      </View>
-    </Container>
+    <StyledContainer>
+      <ProgressBar
+        borderColor={Colors.charcoal}
+        unfilledColor={Colors.charcoal}
+        color={Colors.limeGreen}
+        progress={pageNumber / interests.length}
+        width={300}
+      />
+      <Typography header>I enjoy spending my time</Typography>
+      <Typography>
+        Select 5 tags that best resonate with the activities you enjoy
+        on a day off
+      </Typography>
+      <StyledView>
+        {interests[pageNumber].map((value, index) => {
+          const isSelected = selected[pageNumber].includes(index);
+          return (
+            <Option
+              key={value}
+              onPress={() => {
+                if (isSelected) {
+                  addSelected(index);
+                } else {
+                  removeSelected(index);
+                }
+              }}
+              title={value}
+              selected={isSelected}
+            ></Option>
+          );
+        })}
+      </StyledView>
+      <ButtonHolder>
+        <Button
+          disabled={disabled}
+          type="circle"
+          title="+"
+          onPress={clickNext}
+        ></Button>
+      </ButtonHolder>
+    </StyledContainer>
   );
 };
 

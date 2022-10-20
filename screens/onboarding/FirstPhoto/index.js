@@ -14,6 +14,7 @@ const FirstPhoto = ({ navigation }) => {
     setUserProperty({ photo });
     navigation.navigate(Paths.interests);
   };
+  const disabled = !!!photo;
 
   return (
     <StyledContainer>
@@ -33,7 +34,7 @@ const FirstPhoto = ({ navigation }) => {
       <LongOption title="Add from Instagram" />
       <LongOption title="Add from Facebook" />
       <Button
-        disabled={!!!photo}
+        disabled={disabled}
         onPress={onPressNext}
         title="Next"
       />

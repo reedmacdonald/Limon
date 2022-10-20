@@ -29,6 +29,20 @@ const AddDestination = ({ navigation }) => {
     clearPhotos();
   };
 
+  const setDestinationAndGo = () => {
+    let newDestinationData = [...newPost.destinationData];
+    newDestinationData.push({
+      destinationTitle,
+      destinationCaption,
+      photos,
+    });
+    setNewPostProperty({
+      destinationData: newDestinationData,
+    });
+    clear();
+    navigation.navigate(Paths.preview);
+  };
+
   return (
     <Container>
       <StyledTopContainer>
@@ -62,22 +76,7 @@ const AddDestination = ({ navigation }) => {
             value={destinationCaption}
           />
         </Holder>
-        <Button
-          title={'Next'}
-          onPress={() => {
-            let newDestinationData = [...newPost.destinationData];
-            newDestinationData.push({
-              destinationTitle,
-              destinationCaption,
-              photos,
-            });
-            setNewPostProperty({
-              destinationData: newDestinationData,
-            });
-            clear();
-            navigation.navigate(Paths.preview);
-          }}
-        />
+        <Button title={'Next'} onPress={setDestinationAndGo} />
       </WhiteBackground>
     </Container>
   );

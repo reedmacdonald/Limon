@@ -23,10 +23,10 @@ const FirstPhoto = ({ navigation }) => {
           <StyledImage source={{ uri: photo }} />
         </StyledView>
       )}
-      <Typography header style={{ width: '100%' }}>
+      <Typography header fullWidth>
         Select your first photo for your profile picture
       </Typography>
-      <Typography style={{ width: '100%' }}>
+      <Typography fullWidth>
         Choose a photo to add as a profile picture. You can skip to
         complete later
       </Typography>

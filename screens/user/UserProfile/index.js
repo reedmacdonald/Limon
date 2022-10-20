@@ -48,6 +48,7 @@ export const UserProfile = ({ navigation }) => {
         <BackgroundImage
           alt="grey pattern"
           source={require('../../../assets/Banner.png')}
+          style={{ height: 150 }}
         />
         <InnerBackground>
           <ProfilePicture

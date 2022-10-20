@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
 import { BackgroundImage } from '../../../components/ui-library/BackgroundImage';
 import Button from '../../../components/ui-library/Button';
 import Container from '../../../components/ui-library/Container';
@@ -16,7 +15,7 @@ const SignIn = ({ navigation }) => {
     <Container>
       <BackgroundImage />
       <Form>
-        <Typography>Sign In</Typography>
+        <Typography header>Sign In</Typography>
         <InputText
           placeholder="Username or Email"
           value={username}
@@ -29,7 +28,7 @@ const SignIn = ({ navigation }) => {
           onChangeText={setPassword}
         />
         <Button title="Next" onPress={goToPhoto} />
-        <Text>Forgot Password?</Text>
+        <Typography>Forgot Password?</Typography>
       </Form>
     </Container>
   );

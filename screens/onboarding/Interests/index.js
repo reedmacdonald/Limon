@@ -54,8 +54,10 @@ const Interests = ({ navigation }) => {
         progress={pageNumber / interests.length}
         width={300}
       />
-      <Typography header>I enjoy spending my time</Typography>
-      <Typography>
+      <Typography fullWidth header>
+        I enjoy spending my time
+      </Typography>
+      <Typography fullWidth>
         Select 5 tags that best resonate with the activities you enjoy
         on a day off
       </Typography>

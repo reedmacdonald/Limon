@@ -4,7 +4,12 @@ import { Colors } from '../../constants/Colors';
 
 const Typography = ({ header, children, green, ...props }) => {
   return (
-    <StyledTypography header={header} green={green} {...props}>
+    <StyledTypography
+      header={header}
+      green={green}
+      style={{ width: props.fullWidth ? '100%' : undefined }}
+      {...props}
+    >
       {children}
     </StyledTypography>
   );

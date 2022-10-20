@@ -7,14 +7,14 @@ const BackgroundImageStyle = styled.Image`
   backgroundcolor: ${Colors.pistachio};
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 200px;
   top: -10px;
 `;
 
-export const BackgroundImage = (props) => {
+export const BackgroundImage = (props) => (
   <BackgroundImageStyle
     source={BackgroundArt}
     alt="lemon background"
     {...props}
-  />;
-};
+  />
+);

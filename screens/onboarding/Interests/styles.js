@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 import Container from '../../../components/ui-library/Container';
 
 export const StyledView = styled.View`
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 `;

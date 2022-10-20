@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, Pressable } from 'react-native';
 import Lemon from '../../assets/lemon.png';
 import {
   WhiteBox,
@@ -35,6 +35,9 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Entypo from '@expo/vector-icons/Entypo';
 import { Colors } from '../../constants/Colors';
+import { CenteredRow } from '../ui-library/CenteredRow';
+import { Row } from '../ui-library/Row';
+import { LemonLogo } from '../ui-library/LemonLogo';
 
 const locations = [
   MockOne,
@@ -94,19 +97,14 @@ const DayTrip = ({
             <StyledProfilePicture source={players[number]} />
             <Typography>{username}</Typography>
           </UsernameHolder>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}
-          >
+          <CenteredRow>
             {!isUser ? (
               <FollowingText style={{ marginRight: 10 }}>
                 {following ? 'Following' : 'Follow'}
               </FollowingText>
             ) : null}
             <Entypo name={'dots-three-horizontal'} size={20} />
-          </View>
+          </CenteredRow>
         </TopHolder>
         <ImageHolder>
           {!photos ? (
@@ -117,20 +115,17 @@ const DayTrip = ({
         </ImageHolder>
         <Typography>{postTitle}</Typography>
         <BottomHolder>
-          <View style={{ flexDirection: 'row' }}>
+          <Row>
             <BottomSubHolder>
-              <Image
-                source={Lemon}
-                style={{ height: 20, width: 20, borderRadius: 10 }}
-              />
-              <Typography>likes : {likes}</Typography>
+              <LemonLogo />
+              <Typography>: {likes}</Typography>
             </BottomSubHolder>
             <BottomSubHolder style={{ paddingLeft: 10 }}>
               <Icon name="comments" size={20} color="black" />
               <Typography>{comments} comments</Typography>
             </BottomSubHolder>
-          </View>
-          <View style={{ flexDirection: 'row' }}>
+          </Row>
+          <Row>
             <FontAwesome
               name={'send'}
               size={20}
@@ -150,7 +145,7 @@ const DayTrip = ({
                 color={'black'}
               />
             )}
-          </View>
+          </Row>
         </BottomHolder>
       </WhiteBox>
     </Pressable>

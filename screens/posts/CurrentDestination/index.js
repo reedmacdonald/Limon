@@ -1,6 +1,5 @@
 import react from 'react';
 import React, { useContext, useEffect } from 'react';
-import Container from '../../../components/ui-library/Container';
 import Typography from '../../../components/ui-library/Typography';
 import { CurrentDestinationContext } from '../../../contexts/CurrentDestinationContext';
 import {
@@ -28,7 +27,7 @@ export const CurrentDestination = ({ navigation }) => {
         contentContainerStyle={{ paddingBottom: 400, width: '100%' }}
       >
         <HeaderImage source={{ uri: currentDestination.photo.uri }} />
-        <WhiteBackground style={{ height: 600, width: '100%' }}>
+        <StyledWhiteBackground>
           <Typography header>{currentDestination.title}</Typography>
           <Typography>{currentDestination.caption}</Typography>
           <HorizontalContainer>
@@ -43,7 +42,7 @@ export const CurrentDestination = ({ navigation }) => {
           </HorizontalContainer>
           <Typography>Image Gallery</Typography>
           <Button title="Done" />
-        </WhiteBackground>
+        </StyledWhiteBackground>
       </ScrollView>
     </StyledContainer>
   );

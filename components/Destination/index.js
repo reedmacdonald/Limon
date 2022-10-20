@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import Typography from '../ui-library/Typography';
 import { StyledPressable, StyledImage, BlankBox } from './styled';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import { CurrentDestinationContext } from '../../contexts/CurrentDestinationContext';
 import { Paths } from '../../constants/NavigationPaths';
-import Lemon from '../../assets/lemon.png';
+import { Row } from '../ui-library/Row';
+import { LemonLogo } from '../ui-library/LemonLogo';
 
 export const Destination = ({
   title,
@@ -28,10 +29,10 @@ export const Destination = ({
       <StyledImage source={{ uri: photo.uri }} />
       <View>
         <Typography header>{title}</Typography>
-        <View style={{ flexDirection: 'row' }}>
-          <Image source={Lemon} style={{ width: 30, height: 30 }} />
-          <Typography>likes : {likes}</Typography>
-        </View>
+        <Row>
+          <LemonLogo />
+          <Typography>: {likes}</Typography>
+        </Row>
       </View>
     </StyledPressable>
   );

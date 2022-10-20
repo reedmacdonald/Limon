@@ -14,7 +14,7 @@ const Button = ({
   if (type == 'circle') {
     return (
       <StyledCircle disabled={disabled} onPress={onPress}>
-        <Text style={{ color: 'white' }}>{title}</Text>
+        <Text style={{ color: Colors.white }}>{title}</Text>
       </StyledCircle>
     );
   } else {

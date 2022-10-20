@@ -42,3 +42,7 @@ export const IconSubHolder = styled.View`
   align-items: center;
   width: 25%;
 `;
+
+export const BottomFlatlist = styled.FlatList`
+  margin-bottom: 50px;
+`;

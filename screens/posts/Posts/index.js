@@ -9,6 +9,7 @@ import {
   Image,
   IconHolder,
   IconSubHolder,
+  BottomFlatlist,
 } from './styles';
 import { EventMock as DATA } from '../../../mocks/EventMocks';
 import DayTrip from '../../../components/DayTrip';
@@ -17,7 +18,8 @@ import Material from '@expo/vector-icons/MaterialCommunityIcons';
 import Entypo from '@expo/vector-icons/Entypo';
 import { Colors } from '../../../constants/Colors';
 import InputText from '../../../components/ui-library/TextInput';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
+import { Drawer } from '../../../components/ui-library/Drawer';
 
 const Posts = ({ navigation, route, ...props }) => {
   const [category, setCategory] = useState(route.params.category);
@@ -34,14 +36,7 @@ const Posts = ({ navigation, route, ...props }) => {
     <Container>
       <ScrollView>
         <Image resizeMode={'contain'} source={Logo} />
-        <Pressable
-          style={{ position: 'absolute', top: 0, right: 0 }}
-          onPress={() => {
-            navigation.toggleDrawer();
-          }}
-        >
-          <Ionicons name={'reorder-three-outline'} size={32} />
-        </Pressable>
+        <Drawer onPress={navigation.toggleDrawer} />
         <InputText
           wrapperStyle={{ borderRadius: 15 }}
           icon={
@@ -103,11 +98,10 @@ const Posts = ({ navigation, route, ...props }) => {
               horizontal
             />
             <Typography header>More</Typography>
-            <FlatList
+            <BottomFlatlist
               data={DATA}
               renderItem={renderItem}
               horizontal
-              style={{ marginBottom: 50 }}
             />
           </View>
         ) : (

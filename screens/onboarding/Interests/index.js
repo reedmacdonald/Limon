@@ -26,6 +26,15 @@ const Interests = ({ navigation }) => {
     newSelected[pageNumber].push(num);
     setSelected(newSelected);
   };
+  const removeSelected = (num) => {
+    let newSelected = [...selected];
+    const index = newSelected.indexOf(num);
+    if (index > -1) {
+      newSelected.splice(index, 1);
+    }
+    setSelected(newSelected);
+  };
+
   const clickNext = () => {
     if (pageNumber < interests.length - 1) {
       setPageNumber(pageNumber + 1);
@@ -53,14 +62,19 @@ const Interests = ({ navigation }) => {
         </Typography>
         <StyledView>
           {interests[pageNumber].map((value, index) => {
+            const isSelected = selected[pageNumber].includes(index);
             return (
               <Option
                 key={value}
                 onPress={() => {
-                  addSelected(index);
+                  if (isSelected) {
+                    addSelected(index);
+                  } else {
+                    removeSelected(index);
+                  }
                 }}
                 title={value}
-                selected={selected[pageNumber].includes(index)}
+                selected={isSelected}
               ></Option>
             );
           })}

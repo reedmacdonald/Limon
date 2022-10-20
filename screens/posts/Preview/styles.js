@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import Container from '../../../components/ui-library/Container';
 
 export const HeaderImage = styled.Image`

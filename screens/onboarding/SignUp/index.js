@@ -4,10 +4,10 @@ import Container from '../../../components/ui-library/Container';
 import Form from '../../../components/ui-library/Form';
 import InputText from '../../../components/ui-library/TextInput';
 import React, { useState, useContext } from 'react';
-import BackgroundImage from '../../../components/ui-library/BackgroundImage';
 import Typography from '../../../components/ui-library/Typography';
 import { UserContext } from '../../../contexts/UserContext';
 import { Paths } from '../../../constants/NavigationPaths';
+import { BackgroundImage } from '../../../components/ui-library/BackgroundImage';
 
 const SignUp = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -15,15 +15,25 @@ const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setUserProperty } = useContext(UserContext);
+  const onPressNext = () => {
+    setUserProperty({
+      username,
+      password,
+      phoneNumber,
+      email,
+    });
+    navigation.navigate(Paths.firstphoto);
+  };
+
+  const onPressSignIn = () => {
+    navigation.navigate(Paths.signin);
+  };
+
   return (
     <Container>
-      <BackgroundImage
-        alt="lemon pattern"
-        source={require('../../../assets/backgroundArt.png')}
-        style={{ height: 200 }}
-      />
+      <BackgroundImage />
       <Form>
-        <View style={{ alignSelf: 'flex-start' }}>
+        <View>
           <Typography header>Let's Get Started</Typography>
           <Typography>
             Create an account to start using Limon
@@ -57,18 +67,7 @@ const SignUp = ({ navigation }) => {
         <View>
           <Text>By agreeing to our Terms of Service</Text>
         </View>
-        <Button
-          title="Next"
-          onPress={() => {
-            setUserProperty({
-              username,
-              password,
-              phoneNumber,
-              email,
-            });
-            navigation.navigate(Paths.firstphoto);
-          }}
-        />
+        <Button title="Next" onPress={onPressNext} />
         <Text>
           Already have an account? <Text bold>Sign In</Text>
         </Text>

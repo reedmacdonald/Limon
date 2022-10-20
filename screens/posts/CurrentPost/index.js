@@ -1,6 +1,4 @@
-import react from 'react';
 import React, { useContext } from 'react';
-import Container from '../../../components/ui-library/Container';
 import Typography from '../../../components/ui-library/Typography';
 import { CurrentPostContext } from '../../../contexts/CurrentPostContext';
 import { ScrollView } from 'react-native';
@@ -38,9 +36,11 @@ export const CurrentPost = ({ navigation }) => {
         <Typography bold>Preview</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
-      <ScrollView contentContainerStyle={{ paddingBottom: 400 }}>
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 400, width: '100%' }}
+      >
         <HeaderImage source={MockOne} />
-        <WhiteBackground style={{ height: 600 }}>
+        <WhiteBackground style={{ height: 600, width: '100%' }}>
           <Typography header>{currentPost.postTitle}</Typography>
           <Typography>{currentPost.postCaption}</Typography>
           <HorizontalContainer>

@@ -7,25 +7,22 @@ import { UserContext } from '../../../contexts/UserContext';
 import { Paths } from '../../../constants/NavigationPaths';
 import { useImageGallery } from '../../../hooks/useImageGallery';
 import { Image, View } from 'react-native';
+import { StyledContainer, StyledView, StyledImage } from './styles';
 
 const FirstPhoto = ({ navigation }) => {
   const { setUserProperty } = React.useContext(UserContext);
   const [photo, setPhoto] = useImageGallery({ onePhoto: true });
+  const onPressNext = () => {
+    setUserProperty({ photo });
+    navigation.navigate(Paths.interests);
+  };
 
   return (
-    <Container style={{ paddingHorizontal: 20 }}>
+    <StyledContainer>
       {photo && (
-        <View style={{ width: '100%', alignItems: 'center' }}>
-          <Image
-            style={{
-              width: 100,
-              height: 100,
-              borderRadius: 50,
-              marginBottom: 20,
-            }}
-            source={{ uri: photo }}
-          />
-        </View>
+        <StyledView>
+          <StyledImage source={{ uri: photo }} />
+        </StyledView>
       )}
       <Typography header style={{ width: '100%' }}>
         Select your first photo for your profile picture
@@ -39,13 +36,10 @@ const FirstPhoto = ({ navigation }) => {
       <LongOption title="Add from Facebook" />
       <Button
         disabled={!!!photo}
-        onPress={() => {
-          setUserProperty({ photo });
-          navigation.navigate(Paths.interests);
-        }}
+        onPress={onPressNext}
         title="Next"
       />
-    </Container>
+    </StyledContainer>
   );
 };
 

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import BackgroundImage from '../../../components/ui-library/BackgroundImage';
 import Container from '../../../components/ui-library/Container';
 import { UserContext } from '../../../contexts/UserContext';
 import {
@@ -13,10 +12,11 @@ import {
 } from './styles';
 import Typography from '../../../components/ui-library/Typography';
 import { Paths } from '../../../constants/NavigationPaths';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 import { EventMock as DATA } from '../../../mocks/EventMocks';
 import DayTrip from '../../../components/DayTrip';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { BackgroundImage } from '../../../components/ui-library/BackgroundImage';
 
 export const UserProfile = ({ navigation }) => {
   const { user } = useContext(UserContext);

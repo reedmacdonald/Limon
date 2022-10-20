@@ -27,7 +27,9 @@ export const CurrentPostContextWrapper = ({ children }) => {
       }}
     >
       {notification && (
-        <Notification>Your post is not live!</Notification>
+        <NotificationHolder>
+          <Notification>Your post is now live!</Notification>
+        </NotificationHolder>
       )}
       {children}
     </CurrentPostContext.Provider>
@@ -35,13 +37,17 @@ export const CurrentPostContextWrapper = ({ children }) => {
 };
 
 const Notification = styled.Text`
-  width: 100%;
-  paddin-vertical: 20px;
-  background-color: ${Colors.limeGreen};
   color: ${Colors.white};
+`;
+
+const NotificationHolder = styled.View`
+  width: 100%;
+  background-color: ${Colors.limeGreen};
   position: absolute;
   top: 0;
   text-align: center;
-  height: 400px;
+  height: 100px;
   z-index: 100000000000;
+  justify-content: center;
+  align-items: center;
 `;

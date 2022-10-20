@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Colors } from '../../constants/Colors';
+import BackgroundArt from '../../assets/backgroundArt.png';
 
-const BackgroundImage = (props) => {
-  return <StyledImage {...props} />;
-};
-
-const StyledImage = styled.Image`
+const BackgroundImageStyle = styled.Image`
   backgroundcolor: ${Colors.pistachio};
   position: relative;
   width: 100%;
@@ -14,4 +11,10 @@ const StyledImage = styled.Image`
   top: -10px;
 `;
 
-export default BackgroundImage;
+export const BackgroundImage = (props) => {
+  <BackgroundImageStyle
+    source={BackgroundArt}
+    alt="lemon background"
+    {...props}
+  />;
+};

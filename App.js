@@ -1,16 +1,11 @@
-import React from 'react';
-import OnboardingNavigation from './navigation/OnboardingNavigation';
-import { UserContextWrapper } from './contexts/UserContext';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import UserNavigation from './navigation/UserNavigation';
-import PostsNavigation from './navigation/PostsNavigation';
-import NewPostNavigation from './navigation/NewPostNavigation';
-import { NewPostContextWrapper } from './contexts/NewPostContext';
+import React from 'react';
+import { AuthContextWrapper } from './contexts/AuthContext';
 import { CurrentDestinationContextWrapper } from './contexts/CurrentDestinationContext';
 import { CurrentPostContextWrapper } from './contexts/CurrentPostContext';
-import { SafeAreaView } from 'react-native';
-import { Paths } from './constants/NavigationPaths';
+import { NewPostContextWrapper } from './contexts/NewPostContext';
+import { UserContextWrapper } from './contexts/UserContext';
+import { MainNavigation } from './navigation/MainNavigation';
 
 const Stack = createStackNavigator();
 
@@ -20,29 +15,9 @@ export default function App() {
       <NewPostContextWrapper>
         <CurrentDestinationContextWrapper>
           <CurrentPostContextWrapper>
-            <NavigationContainer>
-              <Stack.Navigator
-                initialRoute={Paths.onboardingNavigation}
-                screenOptions={{ headerShown: false }}
-              >
-                <Stack.Screen
-                  name={Paths.onboardingNavigation}
-                  component={OnboardingNavigation}
-                />
-                <Stack.Screen
-                  name={Paths.userNavigation}
-                  component={UserNavigation}
-                />
-                <Stack.Screen
-                  name={Paths.postsNavigation}
-                  component={PostsNavigation}
-                />
-                <Stack.Screen
-                  name={Paths.newPostNavigation}
-                  component={NewPostNavigation}
-                />
-              </Stack.Navigator>
-            </NavigationContainer>
+            <AuthContextWrapper>
+              <MainNavigation />
+            </AuthContextWrapper>
           </CurrentPostContextWrapper>
         </CurrentDestinationContextWrapper>
       </NewPostContextWrapper>

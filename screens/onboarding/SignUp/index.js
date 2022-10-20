@@ -1,13 +1,13 @@
+import React, { useContext, useState } from 'react';
 import { Text, View } from 'react-native';
+import { BackgroundImage } from '../../../components/ui-library/BackgroundImage';
 import Button from '../../../components/ui-library/Button';
 import Container from '../../../components/ui-library/Container';
 import Form from '../../../components/ui-library/Form';
 import InputText from '../../../components/ui-library/TextInput';
-import React, { useState, useContext } from 'react';
 import Typography from '../../../components/ui-library/Typography';
-import { UserContext } from '../../../contexts/UserContext';
 import { Paths } from '../../../constants/NavigationPaths';
-import { BackgroundImage } from '../../../components/ui-library/BackgroundImage';
+import { UserContext } from '../../../contexts/UserContext';
 
 const SignUp = ({ navigation }) => {
   const [username, setUsername] = useState('');

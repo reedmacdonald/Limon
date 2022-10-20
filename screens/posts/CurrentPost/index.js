@@ -1,23 +1,20 @@
-import React, { useContext } from 'react';
-import Typography from '../../../components/ui-library/Typography';
-import { CurrentPostContext } from '../../../contexts/CurrentPostContext';
+import React from 'react';
 import { ScrollView } from 'react-native';
+import MockOne from '../../../assets/locationMocks/mockOne.jpg';
 import {
   StyledTopContainer,
   WhiteBackground,
 } from '../../../components/NewPost';
 import Button from '../../../components/ui-library/Button';
+import Typography from '../../../components/ui-library/Typography';
+import { CurrentPostContext } from '../../../contexts/CurrentPostContext';
 //TODO:Organize these imports
 import {
-  HeaderImage,
-  GalleryHolder,
-  GalleryImage,
-  StyledContainer,
   BottomContainer,
+  HeaderImage,
   HorizontalContainer,
+  StyledContainer,
 } from '../Preview/styles';
-
-import MockOne from '../../../assets/locationMocks/mockOne.jpg';
 
 //TODO: Readd destinations and photo galleries once this is unmocked
 

@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import Typography from '../../../components/ui-library/Typography';
+import React from 'react';
+import { View } from 'react-native';
 import Logo from '../../../assets/logo.png';
+import DayTrip from '../../../components/DayTrip';
+import Typography from '../../../components/ui-library/Typography';
+import { EventMock as DATA } from '../../../mocks/EventMocks';
 import {
-  StyledContainer as Container,
   DayTripHolder,
   FlatList,
   Image,
   ScrollView,
+  StyledContainer as Container,
 } from '../Posts/styles';
-import { EventMock as DATA } from '../../../mocks/EventMocks';
-import DayTrip from '../../../components/DayTrip';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import Material from '@expo/vector-icons/MaterialCommunityIcons';
-import { Pressable, View } from 'react-native';
 
 const FavoritePosts = ({ navigation, route, ...props }) => {
   const renderItem = (props) => {

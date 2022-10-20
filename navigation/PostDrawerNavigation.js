@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Posts from '../screens/posts/Posts';
+import * as React from 'react';
 import { Colors } from '../constants/Colors';
+import Posts from '../screens/posts/Posts';
 
 const Drawer = createDrawerNavigator();
 

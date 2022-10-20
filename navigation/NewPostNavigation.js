@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import NewPost from '../screens/posts/NewPost';
+import React, { useContext } from 'react';
+import { Paths } from '../constants/NavigationPaths';
 import { UserContext } from '../contexts/UserContext';
 import AddDestination from '../screens/posts/AddDestination';
+import NewPost from '../screens/posts/NewPost';
 import Preview from '../screens/posts/Preview';
-import { Paths } from '../constants/NavigationPaths';
 
 const Tab = createBottomTabNavigator();
 

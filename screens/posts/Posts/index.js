@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import Typography from '../../../components/ui-library/Typography';
-import Logo from '../../../assets/logo.png';
-import {
-  StyledContainer as Container,
-  DayTripHolder,
-  FlatList,
-  ScrollView,
-  Image,
-  IconHolder,
-  IconSubHolder,
-  BottomFlatlist,
-} from './styles';
-import { EventMock as DATA } from '../../../mocks/EventMocks';
-import DayTrip from '../../../components/DayTrip';
+import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Material from '@expo/vector-icons/MaterialCommunityIcons';
-import Entypo from '@expo/vector-icons/Entypo';
-import { Colors } from '../../../constants/Colors';
-import InputText from '../../../components/ui-library/TextInput';
+import React, { useState } from 'react';
 import { View } from 'react-native';
+import Logo from '../../../assets/logo.png';
+import DayTrip from '../../../components/DayTrip';
 import { Drawer } from '../../../components/ui-library/Drawer';
+import InputText from '../../../components/ui-library/TextInput';
+import Typography from '../../../components/ui-library/Typography';
+import { Colors } from '../../../constants/Colors';
+import { EventMock as DATA } from '../../../mocks/EventMocks';
+import {
+  BottomFlatlist,
+  DayTripHolder,
+  FlatList,
+  IconHolder,
+  IconSubHolder,
+  Image,
+  ScrollView,
+  StyledContainer as Container,
+} from './styles';
 
 const Posts = ({ navigation, route, ...props }) => {
   const [category, setCategory] = useState(route.params.category);

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import Typography from '../ui-library/Typography';
-import { StyledPressable, StyledImage, BlankBox } from './styled';
 import { View } from 'react-native';
-import { CurrentDestinationContext } from '../../contexts/CurrentDestinationContext';
 import { Paths } from '../../constants/NavigationPaths';
-import { Row } from '../ui-library/Row';
+import { CurrentDestinationContext } from '../../contexts/CurrentDestinationContext';
 import { LemonLogo } from '../ui-library/LemonLogo';
+import { Row } from '../ui-library/Row';
+import Typography from '../ui-library/Typography';
+import { BlankBox, StyledImage, StyledPressable } from './styled';
 
 export const Destination = ({
   title,

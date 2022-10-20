@@ -1,10 +1,10 @@
-import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { UserProfile } from '../screens/user/UserProfile';
-import EditUser from '../screens/user/EditUser';
+import React from 'react';
 import { Paths } from '../constants/NavigationPaths';
-import { CurrentPost } from '../screens/posts/CurrentPost';
 import { CurrentDestination } from '../screens/posts/CurrentDestination';
+import { CurrentPost } from '../screens/posts/CurrentPost';
+import EditUser from '../screens/user/EditUser';
+import { UserProfile } from '../screens/user/UserProfile';
 
 const Stack = createStackNavigator();
 

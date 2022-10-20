@@ -1,17 +1,17 @@
 import React, { useContext, useState } from 'react';
-import Typography from '../../../components/ui-library/Typography';
-import Button from '../../../components/ui-library/Button';
-import { UserContext } from '../../../contexts/UserContext';
-import { Paths } from '../../../constants/NavigationPaths';
 import { View } from 'react-native';
+import Button from '../../../components/ui-library/Button';
+import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
+import Typography from '../../../components/ui-library/Typography';
+import { Paths } from '../../../constants/NavigationPaths';
+import { UserContext } from '../../../contexts/UserContext';
+import { useImageGallery } from '../../../hooks/useImageGallery';
 import {
-  StyledContainer as Container,
-  InputHolder,
   ImageHolder,
+  InputHolder,
+  StyledContainer as Container,
   StyledProfilePicture,
 } from './styles';
-import { useImageGallery } from '../../../hooks/useImageGallery';
-import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
 //Are we using name and Links at all?
 
 const EditUser = ({ navigation }) => {

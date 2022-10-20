@@ -1,12 +1,7 @@
-import {
-  Text,
-  Image,
-  Pressable,
-  TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import { Image, Text, TouchableOpacity } from 'react-native';
 import Button from '../../../components/ui-library/Button';
 import Container from '../../../components/ui-library/Container';
-import React from 'react';
 import { Paths } from '../../../constants/NavigationPaths';
 
 const Start = ({ navigation }) => {

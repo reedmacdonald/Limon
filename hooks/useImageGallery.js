@@ -1,5 +1,5 @@
-import React from 'react';
 import * as ImagePicker from 'expo-image-picker';
+import React from 'react';
 
 export const useImageGallery = ({ onePhoto }) => {
   const [photos, setPhotos] = React.useState(onePhoto ? '' : []);

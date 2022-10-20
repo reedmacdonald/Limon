@@ -1,21 +1,15 @@
-import react from 'react';
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
+import { View } from 'react-native';
+import Button from '../../../components/ui-library/Button';
 import Typography from '../../../components/ui-library/Typography';
 import { CurrentDestinationContext } from '../../../contexts/CurrentDestinationContext';
-import {
-  StyledTopContainer,
-  WhiteBackground,
-} from '../../../components/NewPost';
-import Button from '../../../components/ui-library/Button';
 //TODO:Organize these imports
 import {
   HeaderImage,
-  GalleryHolder,
-  StyledContainer,
   HorizontalContainer,
   ScrollView,
+  StyledContainer,
 } from '../Preview/styles';
-import { View } from 'react-native';
 
 export const CurrentDestination = ({ navigation }) => {
   const { currentDestination } = React.useContext(

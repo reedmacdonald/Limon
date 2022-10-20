@@ -1,26 +1,26 @@
 import React, { useContext } from 'react';
-import Typography from '../../../components/ui-library/Typography';
-import { NewPostContext } from '../../../contexts/NewPostContext';
 import { ScrollView } from 'react-native';
+import {
+  BlankDestination,
+  Destination,
+} from '../../../components/Destination';
 import {
   StyledTopContainer,
   WhiteBackground,
 } from '../../../components/NewPost';
 import Button from '../../../components/ui-library/Button';
-import {
-  HeaderImage,
-  GalleryHolder,
-  GalleryImage,
-  StyledContainer,
-  BottomContainer,
-  HorizontalContainer,
-} from './styles';
-import {
-  Destination,
-  BlankDestination,
-} from '../../../components/Destination';
+import Typography from '../../../components/ui-library/Typography';
 import { Paths } from '../../../constants/NavigationPaths';
 import { CurrentPostContext } from '../../../contexts/CurrentPostContext';
+import { NewPostContext } from '../../../contexts/NewPostContext';
+import {
+  BottomContainer,
+  GalleryHolder,
+  GalleryImage,
+  HeaderImage,
+  HorizontalContainer,
+  StyledContainer,
+} from './styles';
 
 const Preview = ({ navigation }) => {
   const {

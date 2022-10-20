@@ -1,20 +1,20 @@
 import React, { useContext, useState } from 'react';
-import Typography from '../../../components/ui-library/Typography';
-import Container from '../../../components/ui-library/Container';
-import Button from '../../../components/ui-library/Button';
 import {
-  WhiteBackground,
-  StyledTopContainer,
   Holder,
+  StyledTopContainer,
+  WhiteBackground,
 } from '../../../components/NewPost';
+import Button from '../../../components/ui-library/Button';
+import Container from '../../../components/ui-library/Container';
 import { NewPhoto } from '../../../components/ui-library/NewPhoto';
+import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
+import Typography from '../../../components/ui-library/Typography';
+import { Paths } from '../../../constants/NavigationPaths';
 import { NewPostContext } from '../../../contexts/NewPostContext';
 import { UserContext } from '../../../contexts/UserContext';
-//TODO:Reorganize this
-import { GalleryImage, GalleryHolder } from '../Preview/styles';
-import { Paths } from '../../../constants/NavigationPaths';
 import { useImageGallery } from '../../../hooks/useImageGallery';
-import { SecondaryInput } from '../../../components/ui-library/SecondaryTextInput';
+//TODO:Reorganize this
+import { GalleryHolder, GalleryImage } from '../Preview/styles';
 
 const NewPost = ({ navigation }) => {
   const { setNewPostProperty } = useContext(NewPostContext);

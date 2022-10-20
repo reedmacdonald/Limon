@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Posts from '../screens/posts/Posts';
-import NewPostNavigation from './NewPostNavigation';
+import React, { useContext } from 'react';
+import { Image } from 'react-native';
+import { Colors } from '../constants/Colors';
+import { Paths } from '../constants/NavigationPaths';
+import { UserContext } from '../contexts/UserContext';
 import FavoritePosts from '../screens/posts/FavoritePosts';
 import Notifications from '../screens/user/Notifications';
 import { UserProfile } from '../screens/user/UserProfile';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { UserContext } from '../contexts/UserContext';
-import { Image } from 'react-native';
-import { Paths } from '../constants/NavigationPaths';
-import { Colors } from '../constants/Colors';
+import NewPostNavigation from './NewPostNavigation';
 import { PostDrawerNavigation } from './PostDrawerNavigation';
 //TODO : Figure out why Profile Picture isnt't working
 

@@ -1,15 +1,15 @@
-import { View } from 'react-native';
-import Button from '../../../components/ui-library/Button';
-import { Bar as ProgressBar } from 'react-native-progress';
-import Container from '../../../components/ui-library/Container';
 import React, { useContext } from 'react';
-import { Colors } from '../../../constants/Colors';
+import { View } from 'react-native';
+import { Bar as ProgressBar } from 'react-native-progress';
+import Button from '../../../components/ui-library/Button';
+import Container from '../../../components/ui-library/Container';
 import Option from '../../../components/ui-library/Options';
-import { interests } from '../../../constants/interests';
 import Typography from '../../../components/ui-library/Typography';
+import { Colors } from '../../../constants/Colors';
+import { interests } from '../../../constants/interests';
+import { Paths } from '../../../constants/NavigationPaths';
 import { UserContext } from '../../../contexts/UserContext';
 import { StyledView } from './styles';
-import { Paths } from '../../../constants/NavigationPaths';
 
 const Interests = ({ navigation }) => {
   const [selected, setSelected] = React.useState([

@@ -1,13 +1,11 @@
-import Button from '../../../components/ui-library/Button';
-import Container from '../../../components/ui-library/Container';
 import React from 'react';
+import Button from '../../../components/ui-library/Button';
 import LongOption from '../../../components/ui-library/LongOption';
 import Typography from '../../../components/ui-library/Typography';
-import { UserContext } from '../../../contexts/UserContext';
 import { Paths } from '../../../constants/NavigationPaths';
+import { UserContext } from '../../../contexts/UserContext';
 import { useImageGallery } from '../../../hooks/useImageGallery';
-import { Image, View } from 'react-native';
-import { StyledContainer, StyledView, StyledImage } from './styles';
+import { StyledContainer, StyledImage, StyledView } from './styles';
 
 const FirstPhoto = ({ navigation }) => {
   const { setUserProperty } = React.useContext(UserContext);

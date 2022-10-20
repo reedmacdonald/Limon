@@ -26,9 +26,9 @@ const Interests = ({ navigation }) => {
   };
   const removeSelected = (num) => {
     let newSelected = [...selected];
-    const index = newSelected.indexOf(num);
+    const index = newSelected[pageNumber].indexOf(num);
     if (index > -1) {
-      newSelected.splice(index, 1);
+      newSelected[pageNumber].splice(index, 1);
     }
     setSelected(newSelected);
   };
@@ -66,7 +66,7 @@ const Interests = ({ navigation }) => {
             <Option
               key={value}
               onPress={() => {
-                if (isSelected) {
+                if (!isSelected) {
                   addSelected(index);
                 } else {
                   removeSelected(index);

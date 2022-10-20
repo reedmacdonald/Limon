@@ -30,7 +30,6 @@ export const Destination = ({
       <View>
         <Typography header>{title}</Typography>
         <Row>
-          <LemonLogo />
           <Typography>: {likes}</Typography>
         </Row>
       </View>
@@ -44,7 +43,10 @@ export const BlankDestination = (props) => {
       <BlankBox />
       <View>
         <Typography header>Add a destination</Typography>
-        <Typography>likes : 0</Typography>
+        <Row>
+          <LemonLogo />
+          <Typography>: 0</Typography>
+        </Row>
       </View>
     </StyledPressable>
   );

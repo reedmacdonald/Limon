@@ -1,7 +1,16 @@
 import React from 'react';
-import { Image } from 'react-native';
-import Logo from '../../assets/logo.png';
+import { Image, View } from 'react-native';
+import MainLogo from '../../assets/logo.png';
 
 export const Logo = (props) => {
-  return <Image alt={'Limon'} source={Logo} {...props} />;
+  return (
+    <View style={{ alignItems: 'center' }}>
+      <Image
+        alt={'Limon'}
+        source={MainLogo}
+        {...props}
+        resizeMode="contain"
+      />
+    </View>
+  );
 };

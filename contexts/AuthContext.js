@@ -1,9 +1,9 @@
 import React, { useState, createContext, useEffect } from 'react';
-import { AsyncStorage } from '@react-native-community/async-storage';
+import { AsyncStorage } from '@react-native-async-storage/async-storage';
 const AuthContext = createContext({});
 
 const AuthContextWrapper = ({ children }) => {
-  const [auth, setAuthState] = useState(initialState);
+  const [auth, setAuthState] = useState(null);
 
   const getAuthState = async () => {
     try {

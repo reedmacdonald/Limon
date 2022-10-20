@@ -49,7 +49,9 @@ const Preview = ({ navigation }) => {
   return (
     <StyledContainer>
       <StyledTopContainer>
-        <Typography onPress={navigation.goBack}>X</Typography>
+        <Typography onPress={navigation.goBack} bold>
+          X
+        </Typography>
         <Typography bold>Preview</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>

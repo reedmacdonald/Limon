@@ -7,5 +7,5 @@ export const StyledPressable = styled.Pressable`
 export const StyledImage = styled.Image`
   position: relative;
   width: 100%;
-  height: 300;
+  height: 300px;
 `;

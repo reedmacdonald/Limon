@@ -36,7 +36,7 @@ const Posts = ({ navigation, route, ...props }) => {
   return (
     <Container>
       <ScrollView>
-        <Logo />
+        <Logo style={{ width: 100, height: 50 }} />
         <Drawer onPress={navigation.toggleDrawer} />
         <InputText
           wrapperStyle={{ borderRadius: 15 }}

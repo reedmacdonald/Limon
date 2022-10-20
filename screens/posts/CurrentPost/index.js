@@ -24,7 +24,7 @@ export const CurrentPost = ({ navigation }) => {
   return (
     <StyledContainer>
       <StyledTopContainer>
-        <Typography onPress={goBack}>X</Typography>
+        <Typography boldonPress={goBack}>X</Typography>
         <Typography bold>Preview</Typography>
         <Typography green>Next</Typography>
       </StyledTopContainer>
@@ -44,9 +44,9 @@ export const CurrentPost = ({ navigation }) => {
         <BottomContainer>
           <Typography header>Destinations</Typography>
         </BottomContainer>
-        <WhiteBackground>
+        <StyledWhiteBackground>
           <Typography header>Comments</Typography>
-        </WhiteBackground>
+        </StyledWhiteBackground>
       </ScrollView>
     </StyledContainer>
   );

@@ -24,7 +24,7 @@ const FavoritePosts = ({ navigation, route, ...props }) => {
   return (
     <Container>
       <ScrollView>
-        <Logo />
+        <Logo style={{ width: 100, height: 50 }} />
         <Typography header>Favorites</Typography>
         <FlatList data={dayTrips} renderItem={renderItem} />
       </ScrollView>

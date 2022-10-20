@@ -1,11 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { Paths } from './constants/NavigationPaths';
-import NewPostNavigation from './navigation/NewPostNavigation';
-import OnboardingNavigation from './navigation/OnboardingNavigation';
-import PostsNavigation from './navigation/PostsNavigation';
-import UserNavigation from './navigation/UserNavigation';
+import { Paths } from '../constants/NavigationPaths';
+import NewPostNavigation from './NewPostNavigation';
+import OnboardingNavigation from './OnboardingNavigation';
+import PostsNavigation from './PostsNavigation';
+import UserNavigation from './UserNavigation';
 
 const Stack = createStackNavigator();
 

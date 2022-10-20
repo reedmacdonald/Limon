@@ -1,4 +1,4 @@
-import styled from 'styled-components/natiive';
+import styled from 'styled-components/native';
 
 export const CenteredRow = styled.View`
   flex-direction: row;
